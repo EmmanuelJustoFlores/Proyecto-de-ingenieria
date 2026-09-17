@@ -1,4 +1,8 @@
-/* Reseteo básico */
+/* Animación de desplazamiento suave */
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -12,33 +16,66 @@ body {
     line-height: 1.6;
 }
 
-header {
-    background-color: #0366d6; /* Azul estilo GitHub */
+/* Estilos del menú de navegación fijo */
+nav {
+    background-color: #0366d6;
     color: white;
-    text-align: center;
-    padding: 3rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: fixed; /* Mantiene el menú arriba */
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #c8e1ff; /* Color al pasar el mouse */
+}
+
+/* Contenido Principal */
 main {
     max-width: 800px;
-    margin: 2rem auto;
+    margin: 6rem auto 2rem; /* El 6rem evita que el menú tape el título */
     padding: 0 1rem;
 }
 
-.card {
+/* Estilos de las secciones (Semanas) */
+.seccion {
     background: white;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
+    padding: 2.5rem 2rem;
+    margin-bottom: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.card h2 {
+/* Estilo diferente para destacar la Introducción */
+.intro {
+    background: #e1efff;
+    border-left: 5px solid #0366d6;
+}
+
+.seccion h2 {
     color: #0366d6;
     margin-bottom: 1rem;
     border-bottom: 2px solid #eee;
@@ -47,12 +84,17 @@ main {
 
 ul {
     margin-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
 }
 
 footer {
     text-align: center;
     padding: 1.5rem;
-    background-color: #24292e; /* Gris oscuro estilo GitHub */
+    background-color: #24292e;
     color: white;
     margin-top: 2rem;
 }
