@@ -24,47 +24,47 @@
     <!-- Cabecera de la Semana 1 -->
     <header style="background-color: #0d1117; border-bottom: 1px solid #30363d; color: #c9d1d9; text-align: center; padding: 7rem 1rem 3rem 1rem;">
         <h1>Semana 1</h1>
-        <p>Introducción Integral al Diseño Mecatrónico y Modelado Paramétrico en SolidWorks</p>
+        <p>Introducción al Diseño Mecatrónico y Modelado en SolidWorks</p>
     </header>
 
     <main>
         <!-- Sección de Introducción y Contexto -->
         <section class="seccion">
-            <h2>1. Introducción y Contexto en la Ingeniería Mecatrónica</h2>
-            <p>El diseño asistido por computadora (CAD) constituye la base fundamental en el desarrollo de sistemas mecatrónicos modernos, al permitir la convergencia entre la ingeniería mecánica, la electrónica y el control computacional. Durante esta primera semana de actividades, el propósito central consiste en establecer las directrices metodológicas del modelado virtual tridimensional.</p>
-            <p>La digitalización previa a la manufactura física disminuye los márgenes de error, optimiza el aprovechamiento de materiales y facilita la simulación de propiedades mecánicas. Por consiguiente, el uso de herramientas industriales como SolidWorks aporta competencias esenciales para la materialización de soluciones tecnológicas robustas.</p>
+            <h2>1. Introducción y Contexto</h2>
+            <p>El diseño asistido por computadora (CAD) es una base clave para el desarrollo de proyectos mecatrónicos, ya que permite unir la mecánica, la electrónica y el control. Durante esta primera semana, el propósito principal consiste en conocer las bases para crear modelos virtuales en 3D.</p>
+            <p>Diseñar de manera digital antes de fabricar físicamente ayuda a reducir errores, aprovechar mejor los materiales y probar ideas de forma virtual. Por eso, aprender a usar herramientas como SolidWorks resulta muy útil para desarrollar soluciones de ingeniería eficaces.</p>
         </section>
 
         <!-- Sección de Desarrollo -->
         <section class="seccion">
-            <h2>2. Desarrollo de la Práctica: Metodología y Herramientas Aplicadas</h2>
-            <p>La sesión se rige bajo un flujo de trabajo ingenieril estructurado. A continuación, se presentan los componentes, interfaces y funciones empleados para la obtención de la primera pieza tridimensional:</p>
+            <h2>2. Desarrollo de la Práctica y Herramientas</h2>
+            <p>Las actividades se realizan siguiendo un orden práctico. A continuación, se muestran las funciones y herramientas utilizadas para obtener la primera pieza en 3D:</p>
             
             <ul style="color: #c9d1d9; margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.8;">
                 <li>
                     <strong>2.1 Interfaz de Usuario y Árbol de Operaciones (FeatureManager):</strong>
-                    El software establece un espacio de trabajo configurable mediante un sistema de unidades específico. El entorno integra planos de referencia ortogonales (Alzado, Planta y Vista Lateral). El panel principal incluye el <em>FeatureManager</em> (Árbol de Operaciones), el cual almacena cronológicamente cada croquis y relación geométrica, permitiendo modificaciones paramétricas sin alterar la estructura global.
+                    El programa abre un espacio de trabajo con un sistema de medidas definido y planos de referencia (Alzado, Planta y Vista Lateral). El panel principal cuenta con el <em>FeatureManager</em> (Árbol de Operaciones), que guarda en orden los trazos y pasos realizados, permitiendo hacer cambios fácilmente sin empezar el diseño desde cero.
                 </li>
                 <li>
-                    <strong>2.2 Conceptualización y Trazado de Croquis (Sketching):</strong>
-                    Cualquier modelo sólido surge a partir de un esbozo bidimensional. Mediante entidades como líneas, arcos tangentes, círculos y rectángulos, se define el perfil primario sobre un plano de referencia. La interfaz detecta puntos de interés y alineaciones geométricas para agilizar el trazo preliminar.
+                    <strong>2.2 Creación de Croquis (Sketch):</strong>
+                    Cualquier pieza sólida comienza con un dibujo plano en 2D. Usando figuras como líneas, arcos, círculos y rectángulos, se dibuja la forma principal sobre un plano. El programa ayuda detectando puntos clave y alineaciones para facilitar el trazo.
                 </li>
                 <li>
-                    <strong>2.3 Aplicación de Relaciones de Geometría (Geometric Relations):</strong>
-                    Para dotar al modelo de coherencia técnica, se implementan restricciones orientadas a limitar los grados de libertad:
+                    <strong>2.3 Relaciones de Geometría:</strong>
+                    Para que el dibujo tenga orden y lógica, se aplican reglas que limitan el movimiento de las líneas:
                     <ul style="margin-left: 1.5rem; margin-top: 0.3rem;">
-                        <li><em>Horizontalidad y Verticalidad:</em> Alinean elementos espaciales respecto al origen o entre sí.</li>
-                        <li><em>Paralelismo y Perpendicularidad:</em> Controlan la orientación relativa entre aristas.</li>
-                        <li><em>Coincidencia y Concentricidad:</em> Unen vértices o aseguran ejes compartidos en circunferencias.</li>
+                        <li><em>Horizontal y Vertical:</em> Alinean los elementos de forma recta.</li>
+                        <li><em>Paralelo y Perpendicular:</em> Mantienen la orientación correcta entre los bordes.</li>
+                        <li><em>Coincidente y Concéntrico:</em> Unen puntos exactos o comparten el mismo centro en círculos.</li>
                     </ul>
                 </li>
                 <li>
-                    <strong>2.4 Acotación Paramétrica (Smart Dimensions):</strong>
-                    La herramienta de cota inteligente asigna restricciones cuantitativas —como longitudes, radios, diámetros y ángulos— vinculadas a parámetros matemáticos. Esta función transforma un gráfico libre en un modelo acotado, alcanzando un estado de croquis completamente definido que previene ambigüedades dimensionales.
+                    <strong>2.4 Acotación con Cota Inteligente:</strong>
+                    Esta herramienta sirve para agregar medidas exactas (como largos, radios, diámetros y ángulos). De esta forma, un dibujo libre se convierte en un modelo con medidas reales y precisas, evitando confusiones en el tamaño de la pieza.
                 </li>
                 <li>
-                    <strong>2.5 Operaciones de Salientes y Extrusión (Extruded Boss/Base):</strong>
-                    Tras validar el croquis bidimensional, la operación de saliente extruido proyecta el perfil a lo largo de un vector perpendicular para otorgarle volumen. Esta función simula procesos de manufactura reales como el vaciado o el conformado de perfiles metálicos.
+                    <strong>2.5 Salientes y Extrusión:</strong>
+                    Una vez listo el dibujo plano, la función de extrusión le da profundidad a la figura a lo largo de una dirección para transformarla en un objeto en 3D. Esto imita procesos de fabricación reales, como cortar o moldear un material.
                 </li>
             </ul>
         </section>
@@ -72,23 +72,23 @@
         <!-- Sección de Evidencia -->
         <section class="seccion">
             <h2>3. Evidencia del Trabajo</h2>
-            <p>Como resultado de la aplicación del flujo de trabajo descrito, se obtiene y exporta el modelo tridimensional inicial de la práctica:</p>
+            <p>Como resultado de los pasos anteriores, se obtiene y exporta el primer modelo en 3D de la práctica:</p>
             
             <img src="imagenes/semana1-solidworks.png" alt="Primer dibujo en SolidWorks" style="max-width: 100%; border-radius: 8px; margin-top: 1rem; box-shadow: 0 4px 8px rgba(0,0,0,0.4);">
         </section>
 
         <!-- Sección de Conclusiones -->
         <section class="seccion">
-            <h2>4. Conclusiones de la Semana</h2>
-            <p>La práctica demuestra la rigurosidad inherente al diseño mecánico computarizado. Se evidencia que un modelo óptimo depende de la correcta gestión de las relaciones geométricas y los parámetros dimensionales, garantizando la estabilidad estructural de los componentes mecatrónicos.</p>
+            <h2>4. Conclusiones</h2>
+            <p>La práctica muestra la importancia de trabajar con orden en el diseño mecánico por computadora. Se comprueba que un buen modelo depende de usar correctamente las medidas y las reglas geométricas para que la pieza final sea estable y funcional.</p>
         </section>
 
         <!-- Sección de Fuentes y Referencias -->
         <section class="seccion">
-            <h2>5. Fuentes y Referencias Bibliográficas</h2>
-            <p>Los principios teóricos del diseño asistido por computadora y las especificaciones operativas se fundamentan en la siguiente literatura especializada y documentación oficial:</p>
+            <h2>5. Fuentes de Información</h2>
+            <p>Los conceptos sobre diseño asistido por computadora y el funcionamiento del programa se basan en la siguiente documentación y literatura:</p>
             <ul style="color: #c9d1d9; margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.6;">
-                <li><strong>Dassault Systèmes.</strong> (2026). <em>SolidWorks Essentials: Basic Part Modeling, Sketching and Feature Management Documentation</em>. Dassault Systèmes SolidWorks Corporation. Disponible en: <a href="https://www.solidworks.com" target="_blank" style="color: #58a6ff; text-decoration: none;">www.solidworks.com</a></li>
+                <li><strong>Dassault Systèmes.</strong> (2026). <em>SolidWorks Essentials: Basic Part Modeling, Sketching and Feature Management Documentation</em>. Disponible en: <a href="https://www.solidworks.com" target="_blank" style="color: #58a6ff; text-decoration: none;">www.solidworks.com</a></li>
                 <li><strong>Groover, M. P., & Zimmers, E. W.</strong> (2008). <em>CAD/CAM: Computer-Aided Design and Manufacturing</em>. Pearson Educación.</li>
                 <li><strong>Sham Tickoo.</strong> (2020). <em>SolidWorks for Designers Release</em>. CADCIM Technologies.</li>
                 <li><strong>Brostow, W., & Hagg Lobland, H. E.</strong> (2016). <em>Materials Science and Engineering for Mechatronics</em>. Springer.</li>
