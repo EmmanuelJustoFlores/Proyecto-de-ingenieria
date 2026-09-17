@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
+<!DOCTYPE html><html lang="es"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Semana 1 - Bitácora Mecatrónica</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <title>Semana 3 - Bitácora Mecatrónica</title>
+    <link rel="stylesheet" href="style.css"></head><body>
     <!-- Menú de navegación principal con el logo -->
     <nav>
         <div class="logo" style="display: flex; align-items: center;">
@@ -21,26 +17,112 @@
         </ul>
     </nav>
 
-    <!-- Cabecera de la Semana 1 -->
+    <!-- Cabecera principal -->
     <header style="background-color: #0d1117; border-bottom: 1px solid #30363d; color: #c9d1d9; text-align: center; padding: 7rem 1rem 3rem 1rem;">
-        <h1>Semana 1</h1>
-        <p>Primer dibujo en SolidWorks</p>
+        <h1>Modelado CAD, Manufactura Aditiva y Simulación</h1>
+        <p>Bitácora de Prácticas: Diseño Paramétrico, Impresión 3D, Parámetros de Slicer y Ensamble Virtual</p>
     </header>
 
     <main>
+        <!-- Sección de Introducción y Contexto -->
         <section class="seccion">
-            <h2>Detalles de la práctica</h2>
-            <p>Durante esta primera semana tuve mi introducción al diseño asistido por computadora. Aprendí a utilizar las herramientas básicas del entorno de SolidWorks para crear croquis, acotar medidas y extruir mi primera pieza en 3D.</p>
+            <h2>1. Introducción y Contexto</h2>
+            <p>El tránsito del concepto abstracto a la materialización digital requiere herramientas de diseño asistido por computadora (CAD) de alta precisión. Durante esta tercera semana de actividades, el enfoque principal consiste en estructurar piezas paramétricas complejas, configurar parámetros de impresión 3D y comprender las tecnologías de manufactura aditiva.</p>
+            <p>Dominar la creación de croquis avanzados, matrices, restricciones geométricas y la laminación de archivos es fundamental para optimizar tiempos de fabricación y asegurar la correcta funcionalidad mecánica de los prototipos impresos.</p>
+        </section>
+
+        <!-- Sección de Maquinaria, Funcionamiento e Imágenes -->
+        <section class="seccion">
+            <h2>2. Software, Equipos y Funcionamiento</h2>
+            <p>Durante la sesión se emplearon herramientas digitales de diseño y equipos de manufactura aditiva para la materialización de componentes:</p>
             
-            <h3 style="color: #58a6ff; margin-top: 1.5rem; margin-bottom: 0.5rem;">Evidencia del trabajo</h3>
-            <p>Aquí puedes incluir la imagen de tu primer diseño:</p>
-            <!-- Descomenta y ajusta el nombre de tu archivo de imagen cuando lo subas a la carpeta imagenes -->
-            <!-- <img src="imagenes/semana1-solidworks.png" alt="Primer dibujo en SolidWorks" style="max-width: 100%; border-radius: 8px; margin-top: 1rem; box-shadow: 0 4px 8px rgba(0,0,0,0.4);"> -->
+            <div style="margin-top: 2rem;">
+                <h3 style="color: #58a6ff; margin-bottom: 0.5rem;">2.1 SolidWorks y Diseño Paramétrico</h3>
+                <p><strong>¿Cómo funciona?</strong> SolidWorks es un software de diseño CAD 3D basado en características paramétricas. Su funcionamiento se fundamenta en la creación de croquis bidimensionales acotados mediante relaciones geométricas (paralelismo, perpendicularidad, simetría) que posteriormente se transforman en volúmenes tridimensionales mediante operaciones de extrusión, revolución o cortes. Permite el uso de herramientas avanzadas como líneas constructivas y funciones de espejo (simetría) para estructurar piezas complejas de manera eficiente y modificable en tiempo real.</p>
+                <img src="imagenes/solidworks.jpg" alt="Interfaz de SolidWorks durante el diseño de piezas" style="max-width: 100%; border-radius: 8px; margin-top: 1rem; box-shadow: 0 4px 8px rgba(0,0,0,0.4);">
+            </div>
+
+            <div style="margin-top: 2.5rem;">
+                <h3 style="color: #58a6ff; margin-bottom: 0.5rem;">2.2 Impresora 3D por Modelado por Deposición Fundida (FDM)</h3>
+                <p><strong>¿Cómo funciona?</strong> Este equipo opera mediante extrusión térmica de filamento termoplástico (como PLA o ABS). Un motor de pasos empuja el filamento a través de un tubo guía hacia el cabezal de impresión (hotend), donde se calienta hasta su punto de fusión. El extrusor se desplaza con precisión milimétrica sobre los ejes X, Y y Z depositando el material capa por capa sobre una cama caliente, solidificándose de inmediato para formar la geometría tridimensional final diseñada en el software CAD.</p>
+                <img src="imagenes/impresora3d.jpg" alt="Impresora 3D FDM en funcionamiento" style="max-width: 100%; border-radius: 8px; margin-top: 1rem; box-shadow: 0 4px 8px rgba(0,0,0,0.4);">
+            </div>
+
+            <div style="margin-top: 2.5rem;">
+                <h3 style="color: #58a6ff; margin-bottom: 0.5rem;">2.3 Software de Laminación (Slicer) y Parámetros</h3>
+                <p>El software laminador traduce el archivo 3D (formato STL) en código G (instrucciones numéricas para la impresora). Permite configurar variables críticas como la altura de capa, la densidad de relleno (infill), la velocidad de impresión y la generación de soportes estructurales para voladizos.</p>
+                <img src="imagenes/slicer.jpg" alt="Configuración de parámetros en el software Slicer" style="max-width: 100%; border-radius: 8px; margin-top: 1rem; box-shadow: 0 4px 8px rgba(0,0,0,0.4);">
+            </div>
+        </section>
+
+        <!-- Sección de Seguridad y Buenas Prácticas (Safety) -->
+        <section class="seccion">
+            <h2>3. Buenas Prácticas y Seguridad en el Laboratorio de CAD y Fabricación Aditiva</h2>
+            <p>El manejo adecuado de las herramientas de diseño y el equipo de manufactura aditiva requiere seguir estrictas recomendaciones operativas:</p>
+            
+            <ul style="color: #c9d1d9; margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.8;">
+                <li>
+                    <strong>3.1 Nomenclatura y Gestión de Archivos:</strong>
+                    Evitar el uso de espacios, acentos o caracteres especiales (como la letra Ñ) en los nombres de los archivos CAD para prevenir errores de ruta y fallas de compilación en los ensamblajes.
+                </li>
+                <li>
+                    <strong>3.2 Precaución Térmica (Hotend y Cama Caliente):</strong>
+                    No tocar directamente las boquillas de extrusión ni la superficie de impresión inmediatamente después de finalizar el proceso, ya que alcanzan temperaturas superiores a los 200 °C, representando un riesgo de quemadura severa.
+                </li>
+                <li>
+                    <strong>3.3 Calibración y Nivelación de la Cama:</strong>
+                    Verificar la separación óptima entre la boquilla y la base de impresión antes de iniciar el trabajo para garantizar una correcta adherencia de la primera capa de material.
+                </li>
+                <li>
+                    <strong>3.4 Ventilación del Área de Trabajo:</strong>
+                    Asegurar una ventilación adecuada en el espacio de manufactura aditiva para evitar la acumulación de vapores derivados de la fusión de ciertos polímeros plásticos.
+                </li>
+            </ul>
+
+            <!-- Imagen dedicada al Proceso de Preparación -->
+            <div style="margin-top: 2rem;">
+                <h3 style="color: #58a6ff; margin-bottom: 0.5rem;">Evidencia de Preparación y Buenas Prácticas</h3>
+                <p>Se visualiza la verificación previa de parámetros en la estación de trabajo y la correcta gestión de los componentes digitales listos para enviar a la impresora.</p>
+                <img src="imagenes/safety_cad.jpg" alt="Estación de diseño y preparación de impresión" style="max-width: 100%; border-radius: 8px; margin-top: 1rem; box-shadow: 0 4px 8px rgba(0,0,0,0.4);">
+            </div>
+        </section>
+
+        <!-- Sección de Piezas Modeladas e Impresas -->
+        <section class="seccion">
+            <h2>4. Modelos CAD y Piezas Impresas</h2>
+            <p>Como resultado del proceso de diseño paramétrico y manufactura aditiva, se obtuvieron las siguientes piezas físicas y virtuales:</p>
+            
+            <div style="margin-top: 2rem;">
+                <h3 style="color: #58a6ff; margin-bottom: 0.5rem;">4.1 Pieza paramétrica modelada en SolidWorks</h3>
+                <p>Muestra el modelo tridimensional de la pieza con restricciones geométricas y simetrías aplicadas, optimizada para facilitar su posterior fabricación aditiva sin necesidad de soportes excesivos.</p>
+                <img src="imagenes/pieza_cad.jpg" alt="Modelo CAD en SolidWorks" style="max-width: 100%; border-radius: 8px; margin-top: 1rem; box-shadow: 0 4px 8px rgba(0,0,0,0.4);">
+            </div>
+
+            <div style="margin-top: 2.5rem;">
+                <h3 style="color: #58a6ff; margin-bottom: 0.5rem;">4.2 Componente físico obtenido por Impresión 3D</h3>
+                <p>Se observa el resultado final impreso en material termoplástico. La pieza presenta un acabado uniforme, respetando fielmente las tolerancias dimensionales establecidas en el entorno virtual de diseño.</p>
+                <img src="imagenes/pieza_impresa.jpg" alt="Componente físico fabricado mediante impresión 3D" style="max-width: 100%; border-radius: 8px; margin-top: 1rem; box-shadow: 0 4px 8px rgba(0,0,0,0.4);">
+            </div>
+        </section>
+
+        <!-- Sección de Conclusiones -->
+        <section class="seccion">
+            <h2>5. Conclusiones</h2>
+            <p>La práctica demuestra que un diseño paramétrico robusto y bien acotado en herramientas como SolidWorks simplifica drásticamente la transición hacia la manufactura aditiva. Comprender la interacción entre el software Slicer y los parámetros físicos de la impresora 3D garantiza la obtención de piezas precisas, funcionales y estructuralmente confiables para los sistemas mecatrónicos.</p>
+        </section>
+
+        <!-- Sección de Fuentes y Referencias -->
+        <section class="seccion">
+            <h2>6. Fuentes de Información</h2>
+            <p>Los fundamentos sobre diseño CAD, parametrización y tecnologías de impresión 3D se basan en la siguiente literatura especializada:</p>
+            <ul style="color: #c9d1d9; margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.6;">
+                <li><strong>Gibson, I., Rosen, D., & Stucker, B.</strong> (2015). <em>Additive Manufacturing Technologies: 3D Printing, Rapid Prototyping, and Direct Digital Manufacturing</em>. Springer.</li>
+                <li><strong>Planchard, D. C.</strong> (2020). <em>Engineering Graphics with SOLIDWORKS</em>. SDC Publications.</li>
+                <li><strong>Zeid, I.</strong> (2005). <em>Mastering CAD/CAM</em>. McGraw-Hill.</li>
+            </ul>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 - Bitácora de Ingeniería Mecatrónica</p>
-    </footer>
-</body>
-</html>
+        <p>&copy; 2026 - Bitácora de Ingeniería Mecatrónica | Proyecto Académico IBERO Puebla</p>
+    </footer></body></html>
