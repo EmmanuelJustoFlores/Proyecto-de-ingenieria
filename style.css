@@ -11,29 +11,31 @@ html {
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f7f6;
-    color: #333;
+    background-color: #0d1117; /* Fondo oscuro principal */
+    color: #c9d1d9; /* Texto claro principal */
     line-height: 1.6;
 }
 
 /* Estilos del menú de navegación fijo */
 nav {
-    background-color: #0366d6;
+    background-color: #161b22; /* Fondo gris oscuro */
+    border-bottom: 1px solid #30363d; /* Línea divisoria inferior */
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    position: fixed; /* Mantiene el menú arriba */
+    position: fixed; 
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.5); /* Sombra más fuerte para modo oscuro */
 }
 
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
+    color: #c9d1d9;
 }
 
 .nav-links {
@@ -43,42 +45,43 @@ nav {
 }
 
 .nav-links a {
-    color: white;
+    color: #c9d1d9;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s;
 }
 
 .nav-links a:hover {
-    color: #c8e1ff; /* Color al pasar el mouse */
+    color: #58a6ff; /* Azul claro estilo neón al pasar el mouse */
 }
 
 /* Contenido Principal */
 main {
     max-width: 800px;
-    margin: 6rem auto 2rem; /* El 6rem evita que el menú tape el título */
+    margin: 3rem auto 2rem; /* Separación de la cabecera */
     padding: 0 1rem;
 }
 
 /* Estilos de las secciones (Semanas) */
 .seccion {
-    background: white;
+    background: #161b22; /* Fondo de tarjetas oscuro */
     padding: 2.5rem 2rem;
     margin-bottom: 2rem;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border: 1px solid #30363d; /* Borde sutil gris */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
 }
 
 /* Estilo diferente para destacar la Introducción */
 .intro {
-    background: #e1efff;
-    border-left: 5px solid #0366d6;
+    background: #0d1117;
+    border-left: 5px solid #58a6ff; /* Borde izquierdo azul brillante */
 }
 
 .seccion h2 {
-    color: #0366d6;
+    color: #58a6ff; /* Títulos en azul claro */
     margin-bottom: 1rem;
-    border-bottom: 2px solid #eee;
+    border-bottom: 1px solid #30363d; /* Separador oscuro */
     padding-bottom: 0.5rem;
 }
 
@@ -94,7 +97,8 @@ li {
 footer {
     text-align: center;
     padding: 1.5rem;
-    background-color: #24292e;
-    color: white;
+    background-color: #010409; /* Negro profundo para el pie de página */
+    border-top: 1px solid #30363d;
+    color: #8b949e;
     margin-top: 2rem;
 }
