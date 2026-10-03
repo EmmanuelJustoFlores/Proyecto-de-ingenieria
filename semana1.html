@@ -4,25 +4,245 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Semana 1 - Bitácora Mecatrónica</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* --- Estilo Gótico / Grimorio Oscuro --- */
+        body {
+            background-color: #0b080d;
+            color: #d1c7d6;
+            font-family: "Georgia", "Times New Roman", serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            background-image: radial-gradient(circle at 50% 30%, #17101a 0%, #0b080d 80%);
+            background-attachment: fixed;
+        }
+
+        /* --- Menú de Navegación con Menú Desplegable a la Izquierda --- */
+        nav {
+            background-color: rgba(14, 10, 15, 0.95);
+            border-bottom: 2px solid #3b2738;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+            gap: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: #e6d7df;
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 1.5px;
+            font-family: "Times New Roman", serif;
+        }
+
+        .logo img {
+            height: 35px;
+            margin-right: 12px;
+            filter: drop-shadow(0 0 4px rgba(230, 215, 223, 0.3));
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: #1a1018;
+            color: #e6d7df;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.95rem;
+            font-family: "Georgia", "Times New Roman", serif;
+            border: 1px solid #4a2f43;
+            border-radius: 4px;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .dropbtn:hover {
+            background-color: #2a1826;
+            color: #f3e6ed;
+            border-color: #6b4461;
+            box-shadow: 0 0 8px rgba(107, 68, 97, 0.6);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: #140e16;
+            min-width: 160px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
+            border: 1px solid #3b2636;
+            border-radius: 4px;
+            z-index: 1;
+            margin-top: 5px;
+        }
+
+        .dropdown-content a {
+            color: #b5a4b1;
+            padding: 10px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            border-bottom: 1px dashed #221420;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #241421;
+            color: #f3e6ed;
+            padding-left: 20px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* --- Cabecera Principal --- */
+        header {
+            background: linear-gradient(180deg, #16101a 0%, #0b080d 100%);
+            border-bottom: 2px solid #2d1d29;
+            text-align: center;
+            padding: 5rem 1rem 3rem 1rem;
+        }
+
+        header h1 {
+            font-size: 2.4rem;
+            color: #f0e6ec;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.9);
+        }
+
+        header p {
+            color: #9c8a98;
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        /* --- Contenedor Principal --- */
+        main {
+            max-width: 850px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* --- Secciones con Marcos Góticos Ornamentales --- */
+        .seccion {
+            background-color: rgba(20, 14, 22, 0.85);
+            border: 2px solid #3b2636;
+            border-radius: 4px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.7), 0 8px 25px rgba(0, 0, 0, 0.9);
+            position: relative;
+        }
+
+        .seccion::before {
+            content: "✦ ✧ ✦";
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #5c3f56;
+            font-size: 0.7rem;
+            letter-spacing: 8px;
+        }
+
+        h2 {
+            color: #e6d7df;
+            border-bottom: 1px solid #3b2636;
+            padding-bottom: 0.6rem;
+            margin-top: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: normal;
+            letter-spacing: 0.5px;
+        }
+
+        h3 {
+            color: #d1b2c4;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+        }
+
+        p {
+            color: #c9bcc5;
+        }
+
+        strong {
+            color: #f2e6ee;
+        }
+
+        ul {
+            color: #c9bcc5;
+        }
+
+        a {
+            color: #d1a3c1;
+        }
+
+        a:hover {
+            color: #f3e6ed;
+        }
+
+        /* --- Imágenes --- */
+        img {
+            max-width: 100%;
+            border-radius: 4px;
+            margin-top: 1rem;
+            border: 1px solid #3b2636;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+            display: block;
+        }
+
+        /* --- Pie de Página --- */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            background-color: #060407;
+            border-top: 1px solid #231621;
+            color: #7d6e79;
+            font-size: 0.85rem;
+        }
+    </style>
 </head>
 <body>
-    <!-- Menú de navegación principal con el logo -->
+    <!-- Menú de navegación principal con menú desplegable a la izquierda -->
     <nav>
-        <div class="logo" style="display: flex; align-items: center;">
-            <img src="imagenes/Logopuebla.png" alt="Logo Puebla" style="height: 40px; margin-right: 15px;">
+        <div class="logo">
+            <img src="imagenes/Logopuebla.png" alt="Logo Puebla">
             Proyecto de ingeniería
         </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="semana1.html">Semana 1</a></li>
-            <li><a href="semana2.html">Semana 2</a></li>
-            <li><a href="semana3.html">Semana 3</a></li>
-        </ul>
+
+        <div class="dropdown">
+            <button class="dropbtn">Navegación ▾</button>
+            <div class="dropdown-content">
+                <a href="index.html">Inicio</a>
+                <a href="semana1.html">Semana 1</a>
+                <a href="semana2.html">Semana 2</a>
+                <a href="semana3.html">Semana 3</a>
+                <a href="semana4.html">Semana 4</a>
+            </div>
+        </div>
     </nav>
 
     <!-- Cabecera principal -->
-    <header style="background-color: #0d1117; border-bottom: 1px solid #30363d; color: #c9d1d9; text-align: center; padding: 7rem 1rem 3rem 1rem;">
+    <header>
         <h1>Introducción al Diseño Mecatrónico y Modelado en SolidWorks</h1>
         <p>Bitácora de Prácticas: Modelado Paramétrico y Creación de Sólidos</p>
     </header>
@@ -40,7 +260,7 @@
             <h2>2. Desarrollo de la Práctica y Herramientas</h2>
             <p>Las actividades se realizan siguiendo un orden práctico. A continuación, se muestran las funciones y herramientas utilizadas para obtener las piezas en 3D:</p>
             
-            <ul style="color: #c9d1d9; margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.8;">
+            <ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.8;">
                 <li>
                     <strong>2.1 Interfaz de Usuario y Árbol de Operaciones (FeatureManager):</strong>
                     El programa abre un espacio de trabajo con un sistema de medidas definido y planos de referencia (Alzado, Planta y Vista Lateral). El panel principal cuenta con el <em>FeatureManager</em> (Árbol de Operaciones), que guarda en orden los trazos y pasos realizados, permitiendo hacer cambios fácilmente sin empezar el diseño desde cero.
@@ -75,15 +295,15 @@
             <p>Como resultado de las prácticas realizadas, se obtienen y exportan los siguientes modelos tridimensionales:</p>
             
             <div style="margin-top: 2rem;">
-                <h3 style="color: #58a6ff; margin-bottom: 0.5rem;">Dibujo 1: Bloque escalonado con perforaciones pasantes</h3>
+                <h3>Dibujo 1: Bloque escalonado con perforaciones pasantes</h3>
                 <p>Este primer diseño consiste en un cuerpo prismático base sobre el cual se levantan perfiles escalonados sucesivos mediante operaciones de extrusión acumulativa. Adicionalmente, el modelo incorpora barrenos o perforaciones cilíndricas pasantes tanto en la sección frontal como en la lateral. Su elaboración permite aplicar de forma práctica las herramientas de croquizado sobre caras planas, el control de la profundidad en las extrusiones de corte y la asignación rigurosa de cotas inteligentes para definir alturas, longitudes totales y separaciones entre centros de perforación.</p>
-                <img src="imagenes/Dibujo1.png" alt="Dibujo 1 en SolidWorks" style="max-width: 100%; border-radius: 8px; margin-top: 1rem; box-shadow: 0 4px 8px rgba(0,0,0,0.4);">
+                <img src="imagenes/Dibujo1.png" alt="Dibujo 1 en SolidWorks">
             </div>
 
             <div style="margin-top: 2.5rem;">
-                <h3 style="color: #58a6ff; margin-bottom: 0.5rem;">Dibujo 2: Brazo de enlace mecánico con geometría concéntrica</h3>
+                <h3>Dibujo 2: Brazo de enlace mecánico con geometría concéntrica</h3>
                 <p>El segundo diseño representa un componente típico de transmisión o articulación mecánica, caracterizado por una estructura de conexión con extremos circulares de diferentes diámetros enlazados mediante un cuerpo cónico tangencial. Este ejercicio destaca el uso de relaciones geométricas avanzadas como la concentricidad entre círculos y la tangencia en líneas de unión. Asimismo, facilita la comprensión del acotamiento diametral y radial, elementos fundamentales para asegurar el ajuste correcto de ejes o pernos en ensamblajes mecatrónicos reales.</p>
-                <img src="imagenes/Dibujo2.png" alt="Dibujo 2 en SolidWorks" style="max-width: 100%; border-radius: 8px; margin-top: 1rem; box-shadow: 0 4px 8px rgba(0,0,0,0.4);">
+                <img src="imagenes/Dibujo2.png" alt="Dibujo 2 en SolidWorks">
             </div>
         </section>
 
@@ -97,8 +317,8 @@
         <section class="seccion">
             <h2>5. Fuentes de Información</h2>
             <p>Los conceptos sobre diseño asistido por computadora y el funcionamiento del programa se basan en la siguiente documentación y literatura:</p>
-            <ul style="color: #c9d1d9; margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.6;">
-                <li><strong>Dassault Systèmes.</strong> (2026). <em>SolidWorks Essentials: Basic Part Modeling, Sketching and Feature Management Documentation</em>. Disponible en: <a href="https://www.solidworks.com" target="_blank" style="color: #58a6ff; text-decoration: none;">www.solidworks.com</a></li>
+            <ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.6;">
+                <li><strong>Dassault Systèmes.</strong> (2026). <em>SolidWorks Essentials: Basic Part Modeling, Sketching and Feature Management Documentation</em>. Disponible en: <a href="https://www.solidworks.com" target="_blank">www.solidworks.com</a></li>
                 <li><strong>Groover, M. P., & Zimmers, E. W.</strong> (2008). <em>CAD/CAM: Computer-Aided Design and Manufacturing</em>. Pearson Educación.</li>
                 <li><strong>Sham Tickoo.</strong> (2020). <em>SolidWorks for Designers Release</em>. CADCIM Technologies.</li>
                 <li><strong>Brostow, W., & Hagg Lobland, H. E.</strong> (2016). <em>Materials Science and Engineering for Mechatronics</em>. Springer.</li>
