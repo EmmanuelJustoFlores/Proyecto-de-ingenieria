@@ -216,8 +216,8 @@
             color: #f3e6ed;
         }
 
-        /* --- Imágenes y leyendas --- */
-        img {
+        /* --- Imágenes, Videos y leyendas --- */
+        img, video {
             max-width: 100%;
             border-radius: 4px;
             margin-top: 1rem;
@@ -271,15 +271,15 @@
     <!-- Cabecera principal -->
     <header>
         <h1>Impresión 3D, Exportación STL y Operación Prusa M4</h1>
-        <p>Bitácora de Prácticas: Laminado de Piezas, Configuración de Parámetros y Fabricación Aditiva</p>
+        <p>Bitácora de Prácticas: Laminado de Piezas, Configuración de Parámetros y Fabricación Aditiva con Movimiento</p>
     </header>
 
     <main>
         <!-- Sección de Introducción y Contexto -->
         <section class="seccion">
             <h2>1. Introducción y Contexto</h2>
-            <p>La transformación de geometrías virtuales tridimensionales en elementos físicos tangibles mediante tecnologías de manufactura aditiva requiere el dominio de los flujos de trabajo de impresión 3D. Durante esta quinta semana de actividades, el propósito principal consistió en la correcta exportación de archivos CAD a formato STL, la configuración y segmentación de mallas en el software de laminación (UltiMaker Cura) y la operación de la impresora 3D Prusa M4 para la fabricación de los componentes del proyecto <a href="#ref-libros" class="cita-enlace">[1]</a> <a href="#ref-manual" class="cita-enlace">[2]</a>.</p>
-            <p>Comprender las tolerancias geométricas, la orientación de las piezas en la plataforma y los parámetros térmicos y mecánicos es fundamental para asegurar la integridad estructural y evitar fallos durante el proceso de impresión <a href="#ref-libros" class="cita-enlace">[1]</a> <a href="#ref-manual" class="cita-enlace">[2]</a>.</p>
+            <p>La transformación de geometrías virtuales tridimensionales en elementos físicos tangibles y móviles mediante tecnologías de manufactura aditiva requiere el dominio de los flujos de trabajo de impresión 3D. Durante esta quinta semana de actividades, el propósito principal consistió en la correcta exportación de archivos CAD a formato STL, la configuración y segmentación de mallas en el software de laminación (UltiMaker Cura), la operación de la impresora 3D Prusa M4 y la validación de ensamblajes mecánicos con movimiento integrado <a href="#ref-libros" class="cita-enlace">[1]</a> <a href="#ref-manual" class="cita-enlace">[2]</a>.</p>
+            <p>Comprender las tolerancias geométricas, la orientación de las piezas en la plataforma y los parámetros térmicos y mecánicos es fundamental para asegurar el correcto funcionamiento cinemático de los mecanismos impresos <a href="#ref-libros" class="cita-enlace">[1]</a> <a href="#ref-manual" class="cita-enlace">[2]</a>.</p>
         </section>
 
         <!-- Sección de Preparación del Archivo STL -->
@@ -290,7 +290,7 @@
             <div style="margin-top: 2rem;">
                 <h3>2.1 Exportación a Formato STL</h3>
                 <p><strong>¿Cómo funciona?</strong> A partir de un modelo sólido en SolidWorks, se selecciona <em>Archivo > Guardar como</em>, eligiendo el formato <code>.stl</code>. En las opciones de configuración avanzada (<em>Options...</em>), se define una salida en formato <strong>Binario</strong> y una resolución personalizada con tolerancias adecuadas para optimizar la malla poligonal sin perder definición geométrica.</p>
-                <img src="imagenes/modelado3d.jpg" alt="Modelado 3D inicial en CAD">
+                <img src="imagenes/Modelado3d.jpg" alt="Modelado 3D inicial en CAD">
                 <div class="img-caption">Figura 1: Modelado 3D y preparación para la exportación.</div>
             </div>
         </section>
@@ -302,23 +302,23 @@
             
             <div style="margin-top: 2rem;">
                 <h3>3.1 Configuración de Parámetros de Impresión</h3>
-                <p><strong>¿Cómo funciona?</strong> Se configura el perfil de la impresora y se selecciona el material adecuado (como <strong>PLA</strong> con su respectivo diámetro de filamento). Se definen las propiedades de la pieza tales como la escala, la rotación óptima en la plataforma (empleando ángulos cercanos a los 45° para reducir voladizos críticos) y la densidad de relleno estructural (<em>Infill</em> entre 20% y 40% con patrones como Cúbico o Giroide), activando soportes de impresión en caso de ser necesarios[cite: 50, 52].</p>
+                <p><strong>¿Cómo funciona?</strong> Se configura el perfil de la impresora y se selecciona el material adecuado (como <strong>PLA</strong> con su respectivo diámetro de filamento). Se definen las propiedades de la pieza tales como la escala, la rotación óptima en la plataforma y la densidad de relleno estructural (<em>Infill</em> entre 20% y 40% con patrones como Cúbico o Giroide) para garantizar la resistencia mecánica en las uniones móviles.</p>
             </div>
 
             <div style="margin-top: 2.5rem;">
                 <h3>3.2 Simulación y Guardado de G-code</h3>
-                <p><strong>¿Cómo funciona?</strong> Tras oponer el comando de rebanado (*Slice*), se revisa el tiempo estimado de impresión y el consumo de filamento. Mediante la vista previa (*Preview*), se analiza el tipo de línea y las trayectorias de la boquilla antes de exportar el código G resultante a una tarjeta de almacenamiento SD.</p>
+                <p><strong>¿Cómo funciona?</strong> Tras oponer el comando de rebanado (<em>Slice</em>), se revisa el tiempo estimado de impresión y el consumo de filamento. Mediante la vista previa (<em>Preview</em>), se analiza el tipo de línea y las trayectorias de la boquilla antes de exportar el código G resultante a una tarjeta de almacenamiento SD.</p>
             </div>
         </section>
 
-        <!-- Sección de Operación de la Impresora Prusa M4 -->
+        <!-- Sección de Operación de la Impresora Prusa M4 y Resultados -->
         <section class="seccion">
             <h2>4. Operación de la Impresora Prusa M4 y Resultados</h2>
             <p>La fabricación física de los elementos se ejecutó siguiendo rigurosos protocolos operativos en el equipo de manufactura aditiva:</p>
             
             <div style="margin-top: 2rem;">
                 <h3>4.1 Proceso de Impresión 3D</h3>
-                <p><strong>¿Cómo funciona?</strong> Se inserta la tarjeta SD con el archivo G-code en la impresora Prusa M4, verificando la limpieza previa de la cama caliente[cite: 56]. Se corroboran las temperaturas de operación de la boquilla (aprox. 190°C - 220°C para PLA) y de la base, iniciando el proceso mediante la interfaz táctil y supervisando detalladamente la adherencia de las primeras capas[cite: 42, 57].</p>
+                <p><strong>¿Cómo funciona?</strong> Se inserta la tarjeta SD con el archivo G-code en la impresora Prusa M4, verificando la limpieza previa de la cama caliente. Se corroboran las temperaturas de operación de la boquilla (aprox. 190°C - 220°C para PLA) y de la base, iniciando el proceso mediante la interfaz táctil y supervisando detalladamente la adherencia de las primeras capas.</p>
                 <img src="imagenes/impresion3dPrusa.jpg" alt="Proceso de operación en la impresora Prusa M4">
                 <div class="img-caption">Figura 2: Proceso de impresión en la máquina Prusa M4.</div>
             </div>
@@ -330,25 +330,43 @@
             </div>
         </section>
 
+        <!-- Nueva Sección: Mecanismo en Movimiento -->
+        <section class="seccion">
+            <h2>5. Mecanismo en Movimiento</h2>
+            <p>Como requisito fundamental de esta práctica, el diseño impreso integra un sistema cinemático capaz de generar movimiento mecánico funcional tras el ensamblaje de sus componentes:</p>
+            
+            <div style="margin-top: 2rem;">
+                <h3>5.1 Demostración en Video del Mecanismo</h3>
+                <p><strong>¿Cómo funciona?</strong> A continuación se muestra la prueba de funcionamiento del mecanismo impreso, evidenciando la libertad de movimiento, la precisión de las tolerancias de separación y la correcta operación de las piezas ensambladas:</p>
+                
+                <!-- Reproductor de video integrado (reemplaza 'imagenes/video_mecanismo.mp4' con la ruta real de tu video) -->
+                <video controls width="100%">
+                    <source src="imagenes/video_mecanismo.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de videos.
+                </video>
+                <div class="img-caption">Figura 4: Video de demostración del mecanismo en movimiento.</div>
+            </div>
+        </section>
+
         <!-- Sección de Conclusiones -->
         <section class="seccion">
-            <h2>5. Conclusiones</h2>
-            <p>La práctica demuestra que una correcta exportación en formato STL, combinada con una adecuada configuración en el laminador y la supervisión de los parámetros en la impresora Prusa M4, resulta indispensable para conseguir piezas tridimensionales estables, con óptimo acabado superficial y precisión dimensional <a href="#ref-libros" class="cita-enlace">[1]</a> <a href="#ref-manual" class="cita-enlace">[2]</a>.</p>
+            <h2>6. Conclusiones</h2>
+            <p>La práctica demuestra que una correcta exportación en formato STL, combinada con una adecuada configuración en el laminador, el control de tolerancias para piezas móviles y la supervisión de los parámetros en la impresora Prusa M4, resulta indispensable para conseguir mecanismos tridimensionales funcionales, con óptimo acabado superficial y precisión cinemática <a href="#ref-libros" class="cita-enlace">[1]</a> <a href="#ref-manual" class="cita-enlace">[2]</a>.</p>
         </section>
 
         <!-- Sección de Fuentes y Referencias -->
         <section class="seccion" id="referencias">
-            <h2>6. Fuentes de Información</h2>
+            <h2>7. Fuentes de Información</h2>
             <p>Los parámetros de fabricación y normas operativas se basan en la documentación técnica del laboratorio y la literatura especializada:</p>
             <ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.6;">
-                <li id="ref-manual"><strong>[2] Manual de Operación IDIT.</strong> (2026). <em>Guía de uso para Impresora 3D Prusa M4, UltiMaker Cura, parámetros de temperatura y normativas de seguridad</em>[cite: 39, 41].</li>
+                <li id="ref-manual"><strong>[2] Manual de Operación IDIT.</strong> (2026). <em>Guía de uso para Impresora 3D Prusa M4, UltiMaker Cura, parámetros de temperatura y normativas de seguridad</em>.</li>
                 <li id="ref-libros"><strong>[1] Planchard, D. C.</strong> (2020). <em>Engineering Graphics with SOLIDWORKS</em>. SDC Publications.</li>
             </ul>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 - Bitácora de Ingeniería Mecatrónica | Proyecto Académico IBERO Puebla[cite: 39]</p>
+        <p>&copy; 2026 - Bitácora de Ingeniería Mecatrónica | Proyecto Académico IBERO Puebla</p>
     </footer>
 </body>
 </html>
