@@ -269,7 +269,7 @@
 
     <!-- Cabecera principal -->
     <header>
-        <h1>Fabricación Digital, Exportación DXF y Operación Láser CNC</h1>
+        <h1>Fabricación Digital, Exportación DXF y Operación Láser CO2</h1>
         <p>Bitácora de Prácticas: Preparación de Archivos, Tolerancias Kerf y Seguridad Industrial</p>
     </header>
 
@@ -277,7 +277,7 @@
         <!-- Sección de Introducción y Contexto -->
         <section class="seccion">
             <h2>1. Introducción y Contexto</h2>
-            <p>La materialización de diseños virtuales en componentes físicos reales exige un dominio estricto de las herramientas de manufactura sustractiva y control numérico computarizado. Durante esta cuarta semana de actividades, el enfoque principal consistió en la preparación de archivos vectoriales a partir de modelos CAD, considerando tolerancias de corte y la operación segura de sistemas de corte por láser para la fabricación de los tableros y componentes modulares del proyecto <a href="#ref-libros" class="cita-enlace">[1]</a> <a href="#ref-manual" class="cita-enlace">[2]</a>.</p>
+            <p>La materialización de diseños virtuales en componentes físicos reales exige un dominio estricto de las herramientas de manufactura sustractiva mediante sistemas de corte por láser. Durante esta cuarta semana de actividades, el enfoque principal consistió en la preparación de archivos vectoriales a partir de modelos CAD, considerando las tolerancias de corte y la operación segura de la cortadora láser de CO2 para la fabricación de los tableros y componentes modulares del proyecto <a href="#ref-libros" class="cita-enlace">[1]</a> <a href="#ref-manual" class="cita-enlace">[2]</a>.</p>
             <p>Comprender los parámetros de exportación geométrica, el comportamiento de los materiales y las normativas de seguridad operativa es indispensable para garantizar ensamblajes precisos y evitar daños al equipo o al operador <a href="#ref-libros" class="cita-enlace">[1]</a> <a href="#ref-manual" class="cita-enlace">[2]</a>.</p>
         </section>
 
@@ -288,7 +288,7 @@
             
             <div style="margin-top: 2rem;">
                 <h3>2.1 Modelado Paramétrico y Exportación DXF</h3>
-                <p><strong>¿Cómo funciona?</strong> Partiendo de un modelo sólido (*CAD part*) previamente estructurado en SolidWorks, se diseñaron las piezas considerando los grosores específicos del sustrato. Posteriormente, se genera un plano de dibujo (*CAD drawing*) enfocado en las caras de corte, eliminando elementos de cota innecesarios y guardando el documento directamente en formato <code>.dxf</code> para asegurar la total compatibilidad con el sistema de control numérico <a href="#ref-libros" class="cita-enlace">[1]</a>.</p>
+                <p><strong>¿Cómo funciona?</strong> Partiendo de un modelo sólido (*CAD part*) previamente estructurado en SolidWorks, se diseñaron las piezas considerando los grosores específicos del sustrato. Posteriormente, se genera un plano de dibujo (*CAD drawing*) enfocado en las caras de corte, eliminando elementos de cota innecesarios y guardando el documento directamente en formato <code>.dxf</code> para asegurar la total compatibilidad con el software de la cortadora <a href="#ref-libros" class="cita-enlace">[1]</a>.</p>
                 <img src="imagenes/diseno_Cad.jpg" alt="Pequeño diseño sobre cómo se hace en CAD">
                 <div class="img-caption">Figura 1: Pequeño diseño sobre cómo se hace en CAD.</div>
             </div>
@@ -301,17 +301,17 @@
 
         <!-- Sección de Operación de la Cortadora Láser -->
         <section class="seccion">
-            <h2>3. Operación de la Cortadora Láser CNC y Seguridad</h2>
+            <h2>3. Operación de la Cortadora Láser y Seguridad</h2>
             <p>La manufactura física de los elementos se ejecutó utilizando la cortadora láser industrial (referenciada en el sistema como <code>impresora3d.jpg</code>), siguiendo estrictos protocolos operativos y de seguridad industrial <a href="#ref-manual" class="cita-enlace">[2]</a>:</p>
             
             <div style="margin-top: 2rem;">
                 <h3>3.1 Principio de Funcionamiento y Protocolo de Seguridad (*Safety*)</h3>
-                <p><strong>¿Cómo funciona?</strong> El equipo utiliza un haz de luz láser concentrado mediante espejos móviles y una lente de enfoque para fundir o vaporizar el material de forma instantánea, apoyado por un flujo de aire comprimido. Es obligatorio mantener la cubierta cerrada para filtrar la radiación, encender el sistema de extracción de humos para evitar gases tóxicos y mantener supervisión constante para prevenir riesgos de ignición <a href="#ref-manual" class="cita-enlace">[2]</a>.</p>
+                <p><strong>¿Cómo funciona?</strong> El equipo utiliza un haz de luz láser de CO2 concentrado mediante espejos móviles y una lente de enfoque para fundir o vaporizar el material de forma instantánea, apoyado por un flujo de aire comprimido. Es obligatorio mantener la cubierta cerrada para filtrar la radiación, encender el sistema de extracción de humos para evitar gases tóxicos y mantener supervisión constante para prevenir riesgos de ignición <a href="#ref-manual" class="cita-enlace">[2]</a>.</p>
             </div>
 
             <div style="margin-top: 2.5rem;">
                 <h3>3.2 Configuración en el Software de Control y Ejecución</h3>
-                <p><strong>¿Cómo funciona?</strong> En el software de control (<em>SmartCarve</em>) se importa el archivo <code>.dxf</code>, se configuran velocidad y potencia según la tabla de materiales permitidos (evitando plásticos con cloro o superficies altamente reflectantes), y se verifica el área mediante la función <em>"Go scale"</em> <a href="#ref-manual" class="cita-enlace">[2]</a>. Luego se alinea el cabezal en los ejes $X$ e $Y$ y se ajusta el eje $Z$ a una distancia aproximada de 5 mm antes de iniciar el corte <a href="#ref-manual" class="cita-enlace">[2]</a>.</p>
+                <p><strong>¿Cómo funciona?</strong> En el software incluido con la máquina, denominado <strong>Laser Software</strong>, se importa el archivo <code>.dxf</code>, se configuran los parámetros de velocidad y potencia según la tabla de materiales permitidos (evitando plásticos con cloro o superficies altamente reflectantes) <a href="#ref-manual" class="cita-enlace">[2]</a>. Asimismo, se posiciona y alinea el material sobre la cama de trabajo antes de proceder con la ejecución del corte <a href="#ref-manual" class="cita-enlace">[2]</a>.</p>
                 <img src="imagenes/Corte_laser.jpg" alt="Proceso de corte en MDF de 2.65mm">
                 <div class="img-caption">Figura 2: Proceso de cómo se cortaba en MDF de 2.65mm.</div>
             </div>
@@ -320,7 +320,7 @@
         <!-- Sección de Resultados y Ensamble -->
         <section class="seccion">
             <h2>4. Resultados y Ensamble</h2>
-            <p>Tras finalizar el proceso de corte sustractivo, se procedió al post-procesamiento y armado de los componentes fabricados:</p>
+            <p>Tras finalizar el proceso de corte sustractivo con láser, se procedió al post-procesamiento y armado de los componentes fabricados:</p>
 
             <div style="margin-top: 1.5rem;">
                 <h3>4.1 Armado del Tablero</h3>
@@ -338,7 +338,7 @@
         <!-- Sección de Conclusiones -->
         <section class="seccion">
             <h2>5. Conclusiones</h2>
-            <p>La práctica demuestra que la correcta preparación de archivos vectoriales en SolidWorks y la comprensión detallada del ancho de corte (*kerf*) son factores determinantes para el éxito en la fabricación digital con láser <a href="#ref-libros" class="cita-enlace">[1]</a> <a href="#ref-proceso" class="cita-enlace">[3]</a>. Asimismo, seguir rigurosamente los protocolos de seguridad y calibración asegura un flujo de trabajo eficiente, limpio y libre de riesgos en el taller <a href="#ref-manual" class="cita-enlace">[2]</a>.</p>
+            <p>La práctica demuestra que la correcta preparación de archivos vectoriales en SolidWorks, el uso adecuado del <strong>Laser Software</strong> y la comprensión detallada del ancho de corte (*kerf*) son factores determinantes para el éxito en la fabricación digital por láser <a href="#ref-libros" class="cita-enlace">[1]</a> <a href="#ref-proceso" class="cita-enlace">[3]</a>. Asimismo, seguir rigurosamente los protocolos de seguridad asegura un flujo de trabajo eficiente y libre de riesgos en el taller <a href="#ref-manual" class="cita-enlace">[2]</a>.</p>
         </section>
 
         <!-- Sección de Fuentes y Referencias -->
@@ -346,7 +346,7 @@
             <h2>6. Fuentes de Información</h2>
             <p>Los parámetros de fabricación y normas operativas se basan en la documentación técnica del laboratorio y la literatura especializada:</p>
             <ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.6;">
-                <li id="ref-manual"><strong>[2] Manual de Operación IDIT.</strong> (2026). <em>Guía de uso para Cortadora Láser CNC, parámetros de potencia y normativas de seguridad</em>.</li>
+                <li id="ref-manual"><strong>[2] Manual de Operación IDIT.</strong> (2026). <em>Guía de uso para Cortadora Láser CO2, Laser Software, parámetros de potencia y normativas de seguridad</em>.</li>
                 <li id="ref-libros"><strong>[1] Planchard, D. C.</strong> (2020). <em>Engineering Graphics with SOLIDWORKS</em>. SDC Publications.</li>
                 <li id="ref-proceso"><strong>[3] Groover, M. P.</strong> (2010). <em>Fundamentos de Manufactura Moderna: Materiales, Procesos y Sistemas</em>. McGraw-Hill.</li>
             </ul>
