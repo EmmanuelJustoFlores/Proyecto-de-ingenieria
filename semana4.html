@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 4 - Bitácora Mecatrónica</title>
+    <style>
+        /* --- Estilo Gótico / Grimorio Oscuro --- */
+        body {
+            background-color: #0b080d;
+            color: #d1c7d6;
+            font-family: "Georgia", "Times New Roman", serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            background-image: radial-gradient(circle at 50% 30%, #17101a 0%, #0b080d 80%);
+            background-attachment: fixed;
+        }
+
+        /* --- Menú de Navegación con Menú Desplegable a la Izquierda --- */
+        nav {
+            background-color: rgba(14, 10, 15, 0.95);
+            border-bottom: 2px solid #3b2738;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+            gap: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: #e6d7df;
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 1.5px;
+            font-family: "Times New Roman", serif;
+        }
+
+        .logo img {
+            height: 35px;
+            margin-right: 12px;
+            filter: drop-shadow(0 0 4px rgba(230, 215, 223, 0.3));
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: #1a1018;
+            color: #e6d7df;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.95rem;
+            font-family: "Georgia", "Times New Roman", serif;
+            border: 1px solid #4a2f43;
+            border-radius: 4px;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .dropbtn:hover {
+            background-color: #2a1826;
+            color: #f3e6ed;
+            border-color: #6b4461;
+            box-shadow: 0 0 8px rgba(107, 68, 97, 0.6);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: #140e16;
+            min-width: 160px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
+            border: 1px solid #3b2636;
+            border-radius: 4px;
+            z-index: 1;
+            margin-top: 5px;
+        }
+
+        .dropdown-content a {
+            color: #b5a4b1;
+            padding: 10px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            border-bottom: 1px dashed #221420;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #241421;
+            color: #f3e6ed;
+            padding-left: 20px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* --- Cabecera Principal --- */
+        header {
+            background: linear-gradient(180deg, #16101a 0%, #0b080d 100%);
+            border-bottom: 2px solid #2d1d29;
+            text-align: center;
+            padding: 5rem 1rem 3rem 1rem;
+        }
+
+        header h1 {
+            font-size: 2.4rem;
+            color: #f0e6ec;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.9);
+        }
+
+        header p {
+            color: #9c8a98;
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        /* --- Contenedor Principal --- */
+        main {
+            max-width: 850px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* --- Secciones con Marcos Góticos Ornamentales --- */
+        .seccion {
+            background-color: rgba(20, 14, 22, 0.85);
+            border: 2px solid #3b2636;
+            border-radius: 4px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.7), 0 8px 25px rgba(0, 0, 0, 0.9);
+            position: relative;
+        }
+
+        .seccion::before {
+            content: "✦ ✧ ✦";
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #5c3f56;
+            font-size: 0.7rem;
+            letter-spacing: 8px;
+        }
+
+        h2 {
+            color: #e6d7df;
+            border-bottom: 1px solid #3b2636;
+            padding-bottom: 0.6rem;
+            margin-top: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: normal;
+            letter-spacing: 0.5px;
+        }
+
+        h3 {
+            color: #d1b2c4;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+        }
+
+        p {
+            color: #c9bcc5;
+        }
+
+        strong {
+            color: #f2e6ee;
+        }
+
+        /* --- Imágenes --- */
+        img {
+            max-width: 100%;
+            border-radius: 4px;
+            margin-top: 1rem;
+            border: 1px solid #3b2636;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+            display: block;
+        }
+
+        /* --- Pie de Página --- */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            background-color: #060407;
+            border-top: 1px solid #231621;
+            color: #7d6e79;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Menú de navegación -->
+    <nav>
+        <div class="logo">
+            <img src="imagenes/Logopuebla.png" alt="Logo Puebla">
+            Proyecto de ingeniería
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">Navegación ▾</button>
+            <div class="dropdown-content">
+                <a href="index.html">Inicio</a>
+                <a href="semana1.html">Semana 1</a>
+                <a href="semana2.html">Semana 2</a>
+                <a href="semana3.html">Semana 3</a>
+                <a href="semana4.html">Semana 4</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cabecera principal -->
+    <header>
+        <h1>Semana 4: Fabricación y Uso de Corte Láser</h1>
+        <p>Bitácora de Prácticas: Parámetros, Vectores y Corte de Materiales</p>
+    </header>
+
+    <main>
+        <!-- Sección 1 -->
+        <section class="seccion">
+            <h2>1. Introducción y Fundamentos</h2>
+            <p>La transición del diseño digital tridimensional o vectorial a un objeto físico requiere procesos de manufactura avanzados. Durante esta cuarta semana, el enfoque se centra en el conocimiento de la tecnología de <strong>corte láser</strong>, interpretando la configuración de vectores, potencias, velocidades y las propiedades de los materiales compatibles para lograr acabados precisos en el proyecto.</p>
+        </section>
+
+        <!-- Sección 2 -->
+        <section class="seccion">
+            <h2>2. Preparación de Archivos Vectoriales</h2>
+            <p>Para que la máquina láser interprete correctamente las geometrías:</p>
+            <h3>2.1 Configuración de Líneas de Corte y Grabado</h3>
+            <p>Los archivos deben prepararse utilizando líneas vectoriales con espesores mínimos (línea de cabello o grosores específicos según el software de control), diferenciando por colores (por ejemplo, rojo para corte pasante y negro o azul para rasterizado o grabado superficial).</p>
+        </section>
+
+        <!-- Sección 3 -->
+        <section class="seccion">
+            <h2>3. Pruebas y Proceso de Fabricación</h2>
+            <p>En esta etapa se calibraron los parámetros de velocidad y potencia del láser en función del espesor y la naturaleza del material seleccionado para la práctica.</p>
+            <img src="imagenes/corte_laser.jpg" alt="Proceso de corte láser en funcionamiento">
+        </section>
+
+        <!-- Sección 4 -->
+        <section class="seccion">
+            <h2>4. Conclusiones</h2>
+            <p>El dominio del corte láser permite materializar de forma rápida y exacta los componentes físicos diseñados previamente en CAD. Una correcta calibración de los parámetros de potencia y velocidad evita defectos como quemaduras excesivas o cortes incompletos, garantizando la calidad estructural del ensamblaje.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Bitácora de Ingeniería Mecatrónica | Proyecto Académico IBERO Puebla</p>
+    </footer>
+</body>
+</html>
