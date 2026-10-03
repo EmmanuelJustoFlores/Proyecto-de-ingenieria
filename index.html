@@ -3,32 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bitácora Mecatrónica</title>
+    <title>Inicio - Bitácora Mecatrónica</title>
     <style>
         /* --- Estilo Gótico / Grimorio Oscuro --- */
         body {
-            background-color: #0b080d; /* Fondo negro-violeta muy oscuro */
-            color: #d1c7d6; /* Tono pergamino envejecido claro */
+            background-color: #0b080d;
+            color: #d1c7d6;
             font-family: "Georgia", "Times New Roman", serif;
             margin: 0;
             padding: 0;
             line-height: 1.7;
             background-image: radial-gradient(circle at 50% 30%, #17101a 0%, #0b080d 80%);
             background-attachment: fixed;
+            scroll-behavior: smooth;
         }
 
-        /* --- Menú de Navegación con Menú Desplegable a la Izquierda --- */
+        /* --- Menú de Navegación con Doble Menú Desplegable --- */
         nav {
             background-color: rgba(14, 10, 15, 0.95);
             border-bottom: 2px solid #3b2738;
             display: flex;
-            justify-content: flex-start;
+            justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
             position: sticky;
             top: 0;
             z-index: 1000;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
             gap: 2rem;
         }
 
@@ -48,7 +54,12 @@
             filter: drop-shadow(0 0 4px rgba(230, 215, 223, 0.3));
         }
 
-        /* --- Estilo del Menú Desplegable (Dropdown) a la Izquierda --- */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
         .dropdown {
             position: relative;
             display: inline-block;
@@ -81,7 +92,7 @@
             left: 0;
             top: 100%;
             background-color: #140e16;
-            min-width: 160px;
+            min-width: 180px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
             border: 1px solid #3b2636;
             border-radius: 4px;
@@ -106,10 +117,9 @@
         .dropdown-content a:hover {
             background-color: #241421;
             color: #f3e6ed;
-            padding-left: 20px; /* Pequeño efecto visual al pasar el cursor */
+            padding-left: 20px;
         }
 
-        /* Mostrar el menú desplegable al pasar el cursor (o se puede interactuar) */
         .dropdown:hover .dropdown-content {
             display: block;
         }
@@ -145,7 +155,7 @@
         }
 
         /* --- Secciones con Marcos Góticos Ornamentales --- */
-        .seccion, .intro {
+        .seccion {
             background-color: rgba(20, 14, 22, 0.85);
             border: 2px solid #3b2636;
             border-radius: 4px;
@@ -155,7 +165,7 @@
             position: relative;
         }
 
-        .seccion::before, .intro::before {
+        .seccion::before {
             content: "✦ ✧ ✦";
             position: absolute;
             top: 12px;
@@ -184,6 +194,18 @@
             color: #f2e6ee;
         }
 
+        ul {
+            color: #c9bcc5;
+        }
+
+        a {
+            color: #d1a3c1;
+        }
+
+        a:hover {
+            color: #f3e6ed;
+        }
+
         /* --- Pie de Página --- */
         footer {
             text-align: center;
@@ -196,47 +218,59 @@
     </style>
 </head>
 <body>
-    <!-- Menú de navegación con el desplegable a la izquierda -->
+    <!-- Menú de navegación principal -->
     <nav>
-        <div class="logo">
-            <img src="imagenes/Logopuebla.png" alt="Logo Puebla">
-            Proyecto de ingeniería
+        <div class="nav-left">
+            <div class="logo">
+                <img src="imagenes/Logopuebla.png" alt="Logo Puebla">
+                Proyecto de ingeniería
+            </div>
+            <!-- Menú desplegable exclusivo del Inicio -->
+            <div class="dropdown">
+                <button class="dropbtn">Navegación ▾</button>
+                <div class="dropdown-content">
+                    <a href="index.html">Inicio</a>
+                </div>
+            </div>
         </div>
 
-        <!-- Menú Desplegable ubicado del lado izquierdo -->
-        <div class="dropdown">
-            <button class="dropbtn">Navegación ▾</button>
-            <div class="dropdown-content">
-                <a href="index.html">Inicio</a>
-                <a href="semana1.html">Semana 1</a>
-                <a href="semana2.html">Semana 2</a>
-                <a href="semana3.html">Semana 3</a>
+        <div class="nav-right">
+            <!-- Menú desplegable para descargas de archivos de ingeniería -->
+            <div class="dropdown">
+                <button class="dropbtn">Descargas / Archivos ▾</button>
+                <div class="dropdown-content">
+                    <a href="archivos/modelo.cad" download>Archivo CAD (.cad)</a>
+                    <a href="archivos/pieza.stl" download>Modelo 3D (.stl)</a>
+                    <a href="archivos/corte.dxf" download>Plano Vectorial (.dxf)</a>
+                    <a href="archivos/impresion.gcode" download>Código G-code (.gcode)</a>
+                    <a href="archivos/plano.pdf" download>Plano Técnico (.pdf)</a>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Cabecera principal -->
     <header>
-        <h1>Bitácora Mecatrónica</h1>
-        <p>Repositorio semanal...</p>
+        <h1>Bitácora y Repositorio de Ingeniería Mecatrónica</h1>
+        <p>Documentación de prácticas, diseños asistidos y proyectos académicos</p>
     </header>
 
     <main>
-        <!-- Sobre el proyecto -->
-        <section class="seccion intro">
-            <h2>Sobre el proyecto</h2>
-            <p>La <strong>Mecatrónica</strong> es una disciplina que une la ingeniería mecánica, la electrónica, el control y la programación para diseñar sistemas automatizados e inteligentes. Este repositorio funciona como mi bitácora personal, donde documento semana a semana todo mi aprendizaje práctico y teórico durante el curso.</p>
+        <!-- Sección Sobre el Proyecto -->
+        <section class="seccion">
+            <h2>Sobre el Proyecto</h2>
+            <p>Este espacio digital reúne la bitácora de prácticas, análisis de mecanismos, memorias de cálculo y archivos fuente desarrollados a lo largo de las actividades del proyecto de ingeniería. Utiliza el menú superior derecho para descargar directamente los recursos técnicos y archivos de manufactura (STL, CAD, DXF, G-code).</p>
         </section>
 
-        <!-- Sobre mí -->
+        <!-- Sección Sobre Mí -->
         <section class="seccion">
-            <h2>Sobre mí</h2>
-            <p>Soy Emmanuel Justo Flores, estudiante de Ingeniería Mecatrónica. Me apasiona la mecánica, la electrónica y la programación para crear soluciones. Creé este repositorio como un espacio para documentar mi progreso en la materia, registrar prácticas de laboratorio y tener un portafolio tangible de mi evolución como futuro ingeniero.</p>
+            <h2>Sobre Mí</h2>
+            <p>Estudiante de Ingeniería Mecatrónica enfocado en la automatización, manufactura aditiva, diseño mecánico y control de sistemas complejos. Este sitio web sirve como portafolio y repositorio oficial para documentar cada una de las fases experimentales del curso.</p>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 - Bitácora de Ingeniería Mecatrónica</p>
+        <p>&copy; 2026 - Bitácora de Ingeniería Mecatrónica | Proyecto Académico IBERO Puebla</p>
     </footer>
 </body>
 </html>
