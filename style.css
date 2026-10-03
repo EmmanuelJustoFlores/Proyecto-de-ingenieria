@@ -1,238 +1,141 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Semana 3 - Bitácora Mecatrónica</title>
-    <style>
-        /* Estilos globales con temática Coquette / Dark Berry Vintage */
-        body {
-            background-color: #1c1015; /* Fondo vino oscuro / gótico suave */
-            color: #f3d6df; /* Texto rosado claro vintage */
-            font-family: "Georgia", "Times New Roman", serif; /* Tipografía clásica de cuento/poesía */
-            margin: 0;
-            padding: 0;
-            line-height: 1.7;
-        }
+/* --- Estilos Globales: Dark Berry Coquette / Vintage --- */
+body {
+    background-color: #1c1015; /* Fondo vino oscuro / gótico suave */
+    color: #f3d6df; /* Texto rosado claro vintage */
+    font-family: "Georgia", "Times New Roman", serif; /* Tipografía clásica */
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+}
 
-        /* Menú de navegación estilo retro */
-        nav {
-            background-color: #26131b;
-            border-bottom: 2px dashed #6b2d45;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+/* --- Menú de Navegación --- */
+nav {
+    background-color: #26131b;
+    border-bottom: 2px dashed #6b2d45;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
-        .logo {
-            display: flex;
-            align-items: center;
-            color: #ffb6c1;
-            font-weight: bold;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-        }
+.logo {
+    display: flex;
+    align-items: center;
+    color: #ffb6c1;
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
 
-        .logo img {
-            height: 40px;
-            margin-right: 15px;
-            filter: drop-shadow(0 0 5px rgba(255, 182, 193, 0.4));
-        }
+.logo img {
+    height: 40px;
+    margin-right: 15px;
+    filter: drop-shadow(0 0 5px rgba(255, 182, 193, 0.4));
+}
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 1.5rem;
-            margin: 0;
-            padding: 0;
-        }
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
 
-        .nav-links a {
-            color: #d8a4b8;
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-        }
+.nav-links a {
+    color: #d8a4b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
 
-        .nav-links a:hover {
-            color: #ff69b4;
-            text-shadow: 0 0 8px rgba(255, 105, 180, 0.6);
-        }
+.nav-links a:hover {
+    color: #ff69b4;
+    text-shadow: 0 0 8px rgba(255, 105, 180, 0.6);
+}
 
-        /* Cabecera principal */
-        header {
-            background: linear-gradient(135deg, #2c121d 0%, #160a0f 100%);
-            border-bottom: 2px solid #522235;
-            color: #f7e1eb;
-            text-align: center;
-            padding: 6rem 1rem 3rem 1rem;
-        }
+/* --- Cabecera Principal --- */
+header {
+    background: linear-gradient(135deg, #2c121d 0%, #160a0f 100%);
+    border-bottom: 2px solid #522235;
+    color: #f7e1eb;
+    text-align: center;
+    padding: 6rem 1rem 3rem 1rem;
+}
 
-        header h1 {
-            font-size: 2.3rem;
-            color: #ffb6c1;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-        }
+header h1 {
+    font-size: 2.3rem;
+    color: #ffb6c1;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
 
-        header p {
-            color: #c98ca6;
-            font-style: italic;
-        }
+header p {
+    color: #c98ca6;
+    font-style: italic;
+}
 
-        /* Contenedor principal */
-        main {
-            max-width: 900px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
-        }
+/* --- Contenedor y Secciones --- */
+main {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
 
-        /* Secciones con estilo de tarjetas o marcos delicados */
-        .seccion {
-            background-color: #24141c;
-            border: 1px solid #522235;
-            border-radius: 12px;
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-            position: relative;
-        }
+.seccion, .intro {
+    background-color: #24141c;
+    border: 1px solid #522235;
+    border-radius: 12px;
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
 
-        .seccion::before {
-            content: "♠ ♣ ♥ ♠";
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            color: #6b2d45;
-            font-size: 0.8rem;
-            letter-spacing: 4px;
-        }
+.seccion::before, .intro::before {
+    content: "♠ ♣ ♥ ♠";
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #6b2d45;
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+}
 
-        h2 {
-            color: #ffb6c1;
-            border-bottom: 1px dashed #522235;
-            padding-bottom: 0.5rem;
-            margin-top: 0;
-            font-size: 1.5rem;
-        }
+h2 {
+    color: #ffb6c1;
+    border-bottom: 1px dashed #522235;
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+    font-size: 1.5rem;
+}
 
-        h3 {
-            color: #e287a5;
-        }
+h3 {
+    color: #e287a5;
+}
 
-        p {
-            color: #ecd0dc;
-        }
+p {
+    color: #ecd0dc;
+}
 
-        /* Imágenes con marcos estéticos */
-        img {
-            max-width: 100%;
-            border-radius: 8px;
-            margin-top: 1rem;
-            border: 2px solid #522235;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-            display: block;
-        }
+/* --- Imágenes --- */
+img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 1rem;
+    border: 2px solid #522235;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+    display: block;
+}
 
-        /* Pie de página */
-        footer {
-            text-align: center;
-            padding: 2.5rem;
-            background-color: #160a0f;
-            border-top: 1px solid #381523;
-            color: #9c687e;
-            font-size: 0.9rem;
-        }
-    </style>
-</head>
-<body>
-    <!-- Menú de navegación principal con el logo -->
-    <nav>
-        <div class="logo">
-            <img src="imagenes/Logopuebla.png" alt="Logo Puebla">
-            Proyecto de ingeniería
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="semana1.html">Semana 1</a></li>
-            <li><a href="semana2.html">Semana 2</a></li>
-            <li><a href="semana3.html">Semana 3</a></li>
-        </ul>
-    </nav>
-
-    <!-- Cabecera principal -->
-    <header>
-        <h1>Modelado CAD Avanzado y Preparación en FDX</h1>
-        <p>Bitácora de Prácticas: Diseño Paramétrico, Restricciones y Simulación Digital</p>
-    </header>
-
-    <main>
-        <!-- Sección de Introducción y Contexto -->
-        <section class="seccion">
-            <h2>1. Introducción y Contexto</h2>
-            <p>El tránsito del concepto abstracto a la materialización digital requiere herramientas de diseño asistido por computadora (CAD) de alta precisión. Durante esta tercera semana de actividades, el enfoque principal consiste en estructurar piezas paramétricas complejas, aplicar relaciones geométricas avanzadas y configurar los parámetros iniciales en el sistema FDX.</p>
-            <p>Dominar la creación de croquis avanzados, matrices y restricciones es fundamental para optimizar las geometrías antes de cualquier proceso posterior.</p>
-        </section>
-
-        <!-- Sección de Software y Herramientas Digitales Utilizadas -->
-        <section class="seccion">
-            <h2>2. Software y Herramientas Digitales Utilizadas</h2>
-            <p>Durante la sesión se emplearon herramientas digitales de diseño y preparación de archivos:</p>
-            
-            <div style="margin-top: 2rem;">
-                <h3 style="margin-bottom: 0.5rem;">2.1 SolidWorks y Diseño Paramétrico</h3>
-                <p><strong>¿Cómo funciona?</strong> SolidWorks es un software de diseño CAD 3D basado en características paramétricas. Su funcionamiento se fundamenta en la creación de croquis bidimensionales acotados mediante relaciones geométricas (paralelismo, perpendicularidad, simetría) que posteriormente se transforman en volúmenes tridimensionales mediante operaciones de extrusión, revolución o cortes. Permite el uso de herramientas avanzadas como líneas constructivas y funciones de espejo para estructurar piezas complejas de manera eficiente.</p>
-                <img src="imagenes/solidworks.jpg" alt="Interfaz de SolidWorks durante el diseño de piezas">
-            </div>
-
-            <div style="margin-top: 2.5rem;">
-                <h3 style="margin-bottom: 0.5rem;">2.2 Sistema FDX y Configuración</h3>
-                <p><strong>¿Cómo funciona?</strong> El sistema FDX procesa los modelos tridimensionales para gestionar su configuración y preparación técnica. Permite ajustar los parámetros operativos esenciales, definir trayectorias o configuraciones y verificar la correcta estructura de los archivos antes de proceder con las siguientes etapas del proyecto.</p>
-                <img src="imagenes/fdx.jpg" alt="Configuración de parámetros en el sistema FDX">
-            </div>
-        </section>
-
-        <!-- Sección de Modelos CAD -->
-        <section class="seccion">
-            <h2>3. Modelos CAD y Preparación Digital</h2>
-            <p>Como resultado del proceso de diseño paramétrico y estructuración digital, se obtuvieron las siguientes evidencias:</p>
-            
-            <div style="margin-top: 2rem;">
-                <h3 style="margin-bottom: 0.5rem;">3.1 Pieza paramétrica modelada en SolidWorks</h3>
-                <p>Muestra el modelo tridimensional de la pieza con restricciones geométricas y simétrias aplicadas, optimizada en el entorno virtual de diseño.</p>
-                <img src="imagenes/pieza_cad.jpg" alt="Modelo CAD en SolidWorks">
-            </div>
-
-            <div style="margin-top: 2.5rem;">
-                <h3 style="margin-bottom: 0.5rem;">3.2 Visualización del archivo en FDX</h3>
-                <p>Vista preliminar del archivo exportado (<code>Solid_emmanuel.DXF</code>) cargado en la interfaz, mostrando la geometría dispuesta para su revisión y análisis digital previo.</p>
-                <img src="imagenes/fdx_dibujo.jpg" alt="Visualización del diseño en FDX">
-            </div>
-        </section>
-
-        <!-- Sección de Conclusiones -->
-        <section class="seccion">
-            <h2>4. Conclusiones</h2>
-            <p>La práctica demuestra que un diseño paramétrico robusto y bien acotado en herramientas como SolidWorks facilita enormemente la gestión y futura producción de componentes mecatrónicos. El dominio de la interfaz y la correcta preparación de los archivos mediante FDX son pasos previos indispensables para asegurar la precisión geométrica en el proyecto.</p>
-        </section>
-
-        <!-- Sección de Fuentes y Referencias -->
-        <section class="seccion">
-            <h2>5. Fuentes de Información</h2>
-            <p>Los fundamentos sobre diseño CAD y parametrización se basan en la siguiente literatura especializada:</p>
-            <ul style="color: #ecd0dc; margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.6;">
-                <li><strong>Planchard, D. C.</strong> (2020). <em>Engineering Graphics with SOLIDWORKS</em>. SDC Publications.</li>
-                <li><strong>Zeid, I.</strong> (2005). <em>Mastering CAD/CAM</em>. McGraw-Hill.</li>
-            </ul>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 - Bitácora de Ingeniería Mecatrónica | Proyecto Académico IBERO Puebla</p>
-    </footer>
-</body>
-</html>
+/* --- Pie de Página --- */
+footer {
+    text-align: center;
+    padding: 2.5rem;
+    background-color: #160a0f;
+    border-top: 1px solid #381523;
+    color: #9c687e;
+    font-size: 0.9rem;
+}
