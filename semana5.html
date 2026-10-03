@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 5 - Bitácora Mecatrónica</title>
+    <style>
+        /* --- Estilo Gótico / Grimorio Oscuro --- */
+        body {
+            background-color: #0b080d;
+            color: #d1c7d6;
+            font-family: "Georgia", "Times New Roman", serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            background-image: radial-gradient(circle at 50% 30%, #17101a 0%, #0b080d 80%);
+            background-attachment: fixed;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Menú de Navegación con Menú Desplegable a la Izquierda --- */
+        nav {
+            background-color: rgba(14, 10, 15, 0.95);
+            border-bottom: 2px solid #3b2738;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+            gap: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: #e6d7df;
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 1.5px;
+            font-family: "Times New Roman", serif;
+        }
+
+        .logo img {
+            height: 35px;
+            margin-right: 12px;
+            filter: drop-shadow(0 0 4px rgba(230, 215, 223, 0.3));
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: #1a1018;
+            color: #e6d7df;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.95rem;
+            font-family: "Georgia", "Times New Roman", serif;
+            border: 1px solid #4a2f43;
+            border-radius: 4px;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .dropbtn:hover {
+            background-color: #2a1826;
+            color: #f3e6ed;
+            border-color: #6b4461;
+            box-shadow: 0 0 8px rgba(107, 68, 97, 0.6);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: #140e16;
+            min-width: 160px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
+            border: 1px solid #3b2636;
+            border-radius: 4px;
+            z-index: 1;
+            margin-top: 5px;
+        }
+
+        .dropdown-content a {
+            color: #b5a4b1;
+            padding: 10px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            border-bottom: 1px dashed #221420;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #241421;
+            color: #f3e6ed;
+            padding-left: 20px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* --- Cabecera Principal --- */
+        header {
+            background: linear-gradient(180deg, #16101a 0%, #0b080d 100%);
+            border-bottom: 2px solid #2d1d29;
+            text-align: center;
+            padding: 5rem 1rem 3rem 1rem;
+        }
+
+        header h1 {
+            font-size: 2.4rem;
+            color: #f0e6ec;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.9);
+        }
+
+        header p {
+            color: #9c8a98;
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        /* --- Contenedor Principal --- */
+        main {
+            max-width: 850px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* --- Secciones con Marcos Góticos Ornamentales --- */
+        .seccion {
+            background-color: rgba(20, 14, 22, 0.85);
+            border: 2px solid #3b2636;
+            border-radius: 4px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.7), 0 8px 25px rgba(0, 0, 0, 0.9);
+            position: relative;
+        }
+
+        .seccion::before {
+            content: "✦ ✧ ✦";
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #5c3f56;
+            font-size: 0.7rem;
+            letter-spacing: 8px;
+        }
+
+        h2 {
+            color: #e6d7df;
+            border-bottom: 1px solid #3b2636;
+            padding-bottom: 0.6rem;
+            margin-top: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: normal;
+            letter-spacing: 0.5px;
+        }
+
+        h3 {
+            color: #d1b2c4;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+        }
+
+        p {
+            color: #c9bcc5;
+        }
+
+        strong {
+            color: #f2e6ee;
+        }
+
+        ul {
+            color: #c9bcc5;
+        }
+
+        /* Estilo para los enlaces de citas internos */
+        .cita-enlace {
+            color: #b583a6;
+            text-decoration: none;
+            font-size: 0.85rem;
+            vertical-align: super;
+            padding: 0 2px;
+            transition: color 0.2s ease;
+        }
+
+        .cita-enlace:hover {
+            color: #f3e6ed;
+            text-decoration: underline;
+        }
+
+        a {
+            color: #d1a3c1;
+        }
+
+        a:hover {
+            color: #f3e6ed;
+        }
+
+        /* --- Imágenes y leyendas --- */
+        img {
+            max-width: 100%;
+            border-radius: 4px;
+            margin-top: 1rem;
+            border: 1px solid #3b2636;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .img-caption {
+            font-size: 0.85rem;
+            color: #9c8a98;
+            text-align: center;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        /* --- Pie de Página --- */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            background-color: #060407;
+            border-top: 1px solid #231621;
+            color: #7d6e79;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Menú de navegación principal con menú desplegable a la izquierda -->
+    <nav>
+        <div class="logo">
+            <img src="imagenes/Logopuebla.png" alt="Logo Puebla">
+            Proyecto de ingeniería
+        </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">Navegación ▾</button>
+            <div class="dropdown-content">
+                <a href="index.html">Inicio</a>
+                <a href="semana1.html">Semana 1</a>
+                <a href="semana2.html">Semana 2</a>
+                <a href="semana3.html">Semana 3</a>
+                <a href="semana4.html">Semana 4</a>
+                <a href="semana5.html">Semana 5</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cabecera principal -->
+    <header>
+        <h1>Impresión 3D, Exportación STL y Operación Prusa M4</h1>
+        <p>Bitácora de Prácticas: Laminado de Piezas, Configuración de Parámetros y Fabricación Aditiva</p>
+    </header>
+
+    <main>
+        <!-- Sección de Introducción y Contexto -->
+        <section class="seccion">
+            <h2>1. Introducción y Contexto</h2>
+            <p>La transformación de geometrías virtuales tridimensionales en elementos físicos tangibles mediante tecnologías de manufactura aditiva requiere el dominio de los flujos de trabajo de impresión 3D. Durante esta quinta semana de actividades, el propósito principal consistió en la correcta exportación de archivos CAD a formato STL, la configuración y segmentación de mallas en el software de laminación (UltiMaker Cura) y la operación de la impresora 3D Prusa M4 para la fabricación de los componentes del proyecto <a href="#ref-libros" class="cita-enlace">[1]</a> <a href="#ref-manual" class="cita-enlace">[2]</a>.</p>
+            <p>Comprender las tolerancias geométricas, la orientación de las piezas en la plataforma y los parámetros térmicos y mecánicos es fundamental para asegurar la integridad estructural y evitar fallos durante el proceso de impresión <a href="#ref-libros" class="cita-enlace">[1]</a> <a href="#ref-manual" class="cita-enlace">[2]</a>.</p>
+        </section>
+
+        <!-- Sección de Preparación del Archivo STL -->
+        <section class="seccion">
+            <h2>2. Preparación y Exportación del Archivo STL (SolidWorks)</h2>
+            <p>Para transferir de manera óptima las piezas tridimensionales desde el entorno CAD hacia el laminador, se llevaron a cabo los siguientes pasos:</p>
+            
+            <div style="margin-top: 2rem;">
+                <h3>2.1 Exportación a Formato STL</h3>
+                <p><strong>¿Cómo funciona?</strong> A partir de un modelo sólido en SolidWorks, se selecciona <em>Archivo > Guardar como</em>, eligiendo el formato <code>.stl</code>. En las opciones de configuración avanzada (<em>Options...</em>), se define una salida en formato <strong>Binario</strong> y una resolución personalizada con tolerancias adecuadas para optimizar la malla poligonal sin perder definición geométrica.</p>
+                <img src="imagenes/modelado3d.jpg" alt="Modelado 3D inicial en CAD">
+                <div class="img-caption">Figura 1: Modelado 3D y preparación para la exportación.</div>
+            </div>
+        </section>
+
+        <!-- Sección de Laminado y Configuración en UltiMaker Cura -->
+        <section class="seccion">
+            <h2>3. Laminado de Piezas y Generación de G-code (UltiMaker Cura)</h2>
+            <p>El archivo STL se procesó en el software de laminación para adaptarlo a las especificaciones de la impresora Prusa M4:</p>
+            
+            <div style="margin-top: 2rem;">
+                <h3>3.1 Configuración de Parámetros de Impresión</h3>
+                <p><strong>¿Cómo funciona?</strong> Se configura el perfil de la impresora y se selecciona el material adecuado (como <strong>PLA</strong> con su respectivo diámetro de filamento). Se definen las propiedades de la pieza tales como la escala, la rotación óptima en la plataforma (empleando ángulos cercanos a los 45° para reducir voladizos críticos) y la densidad de relleno estructural (<em>Infill</em> entre 20% y 40% con patrones como Cúbico o Giroide), activando soportes de impresión en caso de ser necesarios[cite: 50, 52].</p>
+            </div>
+
+            <div style="margin-top: 2.5rem;">
+                <h3>3.2 Simulación y Guardado de G-code</h3>
+                <p><strong>¿Cómo funciona?</strong> Tras oponer el comando de rebanado (*Slice*), se revisa el tiempo estimado de impresión y el consumo de filamento. Mediante la vista previa (*Preview*), se analiza el tipo de línea y las trayectorias de la boquilla antes de exportar el código G resultante a una tarjeta de almacenamiento SD.</p>
+            </div>
+        </section>
+
+        <!-- Sección de Operación de la Impresora Prusa M4 -->
+        <section class="seccion">
+            <h2>4. Operación de la Impresora Prusa M4 y Resultados</h2>
+            <p>La fabricación física de los elementos se ejecutó siguiendo rigurosos protocolos operativos en el equipo de manufactura aditiva:</p>
+            
+            <div style="margin-top: 2rem;">
+                <h3>4.1 Proceso de Impresión 3D</h3>
+                <p><strong>¿Cómo funciona?</strong> Se inserta la tarjeta SD con el archivo G-code en la impresora Prusa M4, verificando la limpieza previa de la cama caliente[cite: 56]. Se corroboran las temperaturas de operación de la boquilla (aprox. 190°C - 220°C para PLA) y de la base, iniciando el proceso mediante la interfaz táctil y supervisando detalladamente la adherencia de las primeras capas[cite: 42, 57].</p>
+                <img src="imagenes/impresion3dPrusa.jpg" alt="Proceso de operación en la impresora Prusa M4">
+                <div class="img-caption">Figura 2: Proceso de impresión en la máquina Prusa M4.</div>
+            </div>
+
+            <div style="margin-top: 2.5rem;">
+                <h3>4.2 Resultados Finales</h3>
+                <img src="imagenes/impresion3d.jpg" alt="Componentes impresos en 3D">
+                <div class="img-caption">Figura 3: Componentes fabricados e impresos exitosamente en la semana 5.</div>
+            </div>
+        </section>
+
+        <!-- Sección de Conclusiones -->
+        <section class="seccion">
+            <h2>5. Conclusiones</h2>
+            <p>La práctica demuestra que una correcta exportación en formato STL, combinada con una adecuada configuración en el laminador y la supervisión de los parámetros en la impresora Prusa M4, resulta indispensable para conseguir piezas tridimensionales estables, con óptimo acabado superficial y precisión dimensional <a href="#ref-libros" class="cita-enlace">[1]</a> <a href="#ref-manual" class="cita-enlace">[2]</a>.</p>
+        </section>
+
+        <!-- Sección de Fuentes y Referencias -->
+        <section class="seccion" id="referencias">
+            <h2>6. Fuentes de Información</h2>
+            <p>Los parámetros de fabricación y normas operativas se basan en la documentación técnica del laboratorio y la literatura especializada:</p>
+            <ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.6;">
+                <li id="ref-manual"><strong>[2] Manual de Operación IDIT.</strong> (2026). <em>Guía de uso para Impresora 3D Prusa M4, UltiMaker Cura, parámetros de temperatura y normativas de seguridad</em>[cite: 39, 41].</li>
+                <li id="ref-libros"><strong>[1] Planchard, D. C.</strong> (2020). <em>Engineering Graphics with SOLIDWORKS</em>. SDC Publications.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Bitácora de Ingeniería Mecatrónica | Proyecto Académico IBERO Puebla[cite: 39]</p>
+    </footer>
+</body>
+</html>
