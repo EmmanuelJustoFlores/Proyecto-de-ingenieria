@@ -4,33 +4,253 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Semana 2 - Bitácora Mecatrónica</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* --- Estilo Gótico / Grimorio Oscuro --- */
+        body {
+            background-color: #0b080d;
+            color: #d1c7d6;
+            font-family: "Georgia", "Times New Roman", serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            background-image: radial-gradient(circle at 50% 30%, #17101a 0%, #0b080d 80%);
+            background-attachment: fixed;
+        }
+
+        /* --- Menú de Navegación con Menú Desplegable a la Izquierda --- */
+        nav {
+            background-color: rgba(14, 10, 15, 0.95);
+            border-bottom: 2px solid #3b2738;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+            gap: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: #e6d7df;
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 1.5px;
+            font-family: "Times New Roman", serif;
+        }
+
+        .logo img {
+            height: 35px;
+            margin-right: 12px;
+            filter: drop-shadow(0 0 4px rgba(230, 215, 223, 0.3));
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: #1a1018;
+            color: #e6d7df;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.95rem;
+            font-family: "Georgia", "Times New Roman", serif;
+            border: 1px solid #4a2f43;
+            border-radius: 4px;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .dropbtn:hover {
+            background-color: #2a1826;
+            color: #f3e6ed;
+            border-color: #6b4461;
+            box-shadow: 0 0 8px rgba(107, 68, 97, 0.6);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: #140e16;
+            min-width: 160px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
+            border: 1px solid #3b2636;
+            border-radius: 4px;
+            z-index: 1;
+            margin-top: 5px;
+        }
+
+        .dropdown-content a {
+            color: #b5a4b1;
+            padding: 10px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            border-bottom: 1px dashed #221420;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #241421;
+            color: #f3e6ed;
+            padding-left: 20px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* --- Cabecera Principal --- */
+        header {
+            background: linear-gradient(180deg, #16101a 0%, #0b080d 100%);
+            border-bottom: 2px solid #2d1d29;
+            text-align: center;
+            padding: 5rem 1rem 3rem 1rem;
+        }
+
+        header h1 {
+            font-size: 2.4rem;
+            color: #f0e6ec;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.9);
+        }
+
+        header p {
+            color: #9c8a98;
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        /* --- Contenedor Principal --- */
+        main {
+            max-width: 850px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* --- Secciones con Marcos Góticos Ornamentales --- */
+        .seccion {
+            background-color: rgba(20, 14, 22, 0.85);
+            border: 2px solid #3b2636;
+            border-radius: 4px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.7), 0 8px 25px rgba(0, 0, 0, 0.9);
+            position: relative;
+        }
+
+        .seccion::before {
+            content: "✦ ✧ ✦";
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #5c3f56;
+            font-size: 0.7rem;
+            letter-spacing: 8px;
+        }
+
+        h2 {
+            color: #e6d7df;
+            border-bottom: 1px solid #3b2636;
+            padding-bottom: 0.6rem;
+            margin-top: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: normal;
+            letter-spacing: 0.5px;
+        }
+
+        h3 {
+            color: #d1b2c4;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+        }
+
+        p {
+            color: #c9bcc5;
+        }
+
+        strong {
+            color: #f2e6ee;
+        }
+
+        ul {
+            color: #c9bcc5;
+        }
+
+        a {
+            color: #d1a3c1;
+        }
+
+        a:hover {
+            color: #f3e6ed;
+        }
+
+        /* --- Imágenes --- */
+        img {
+            max-width: 100%;
+            border-radius: 4px;
+            margin-top: 1rem;
+            border: 1px solid #3b2636;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+            display: block;
+        }
+
+        /* --- Pie de Página --- */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            background-color: #060407;
+            border-top: 1px solid #231621;
+            color: #7d6e79;
+            font-size: 0.85rem;
+        }
+    </style>
 </head>
 <body>
-    <!-- Menú de navegación principal con el logo -->
+    <!-- Menú de navegación principal con menú desplegable a la izquierda -->
     <nav>
         <div class="logo">
             <img src="imagenes/Logopuebla.png" alt="Logo Puebla">
             Proyecto de ingeniería
         </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="semana1.html">Semana 1</a></li>
-            <li><a href="semana2.html">Semana 2</a></li>
-            <li><a href="semana3.html">Semana 3</a></li>
-        </ul>
+
+        <div class="dropdown">
+            <button class="dropbtn">Navegación ▾</button>
+            <div class="dropdown-content">
+                <a href="index.html">Inicio</a>
+                <a href="semana1.html">Semana 1</a>
+                <a href="semana2.html">Semana 2</a>
+                <a href="semana3.html">Semana 3</a>
+                <a href="semana4.html">Semana 4</a>
+            </div>
+        </div>
     </nav>
 
     <!-- Cabecera principal -->
     <header>
-        <h1>Semana 2</h1>
-        <p>Procesos de Manufactura, Corte y Soldadura: Maquinaria, Seguridad y Habilitado de Materiales</p>
+        <h1>Semana 2: Procesos de Manufactura, Corte y Soldadura</h1>
+        <p>Bitácora de Prácticas: Maquinaria, Seguridad y Habilitado de Materiales</p>
     </header>
 
     <main>
         <!-- Sección de Introducción y Contexto -->
         <section class="seccion">
-            <h2>1. Introducción y Contexto en la Ingeniería Mecatrónica</h2>
+            <h2>1. Introducción y Contexto</h2>
             <p>La manufactura y el ensamblaje físico representan etapas críticas en el desarrollo de sistemas mecatrónicos funcionales. Durante esta segunda semana de actividades, el enfoque principal consistió en llevar los diseños virtuales del plano digital a la realidad mediante el uso de herramientas de corte, preparación de perfiles y procesos de unión por soldadura.</p>
             <p>Comprender el funcionamiento técnico de las máquinas de soldar, los equipos de corte abrasivo y las medidas de seguridad industrial es indispensable para garantizar la integridad estructural de los prototipos y salvaguardar la integridad física del operador en el entorno de taller.</p>
         </section>
@@ -40,29 +260,23 @@
             <h2>2. Maquinaria, Funcionamiento Operativo y Evidencias</h2>
             <p>Durante la sesión práctica de taller se emplearon equipos especializados para el corte, habilitado y unión de los componentes metálicos del prototipo:</p>
             
-            <ul>
-                <li>
-                    <strong>2.1 Soldadora Industrial (Modelo Miller) y su Funcionamiento:</strong>
-                    Esta máquina opera mediante el proceso de soldadura por arco eléctrico con gas protector (MIG/MAG). Su principio se basa en generar un circuito eléctrico de alta corriente y bajo voltaje entre la pieza de trabajo y un alambre electrodo continuo que se alimenta de forma automática. Al acercar el alambre al metal base, se crea un arco eléctrico intenso que funde ambos materiales al instante. Simultáneamente, la máquina libera un flujo constante de gas inerte o activo desde un tanque externo para rodear la zona de fusión, evitando que el oxígeno y la humedad del aire contaminen el cordón y provoquen porosidades estructurales.
-                </li>
-            </ul>
-            <img src="imagenes/soldadora.jpg" alt="Soldadora Industrial Miller en el taller">
+            <div style="margin-top: 2rem;">
+                <h3>2.1 Soldadora Industrial (Modelo Miller) y su Funcionamiento</h3>
+                <p>Esta máquina opera mediante el proceso de soldadura por arco eléctrico con gas protector (MIG/MAG). Su principio se basa en generar un circuito eléctrico de alta corriente y bajo voltaje entre la pieza de trabajo y un alambre electrodo continuo que se alimenta de forma automática. Al acercar el alambre al metal base, se crea un arco eléctrico intenso que funde ambos materiales al instante. Simultáneamente, la máquina libera un flujo constante de gas inerte o activo desde un tanque externo para rodear la zona de fusión, evitando que el oxígeno y la humedad del aire contaminen el cordón y provoquen porosidades estructurales.</p>
+                <img src="imagenes/soldadora.jpg" alt="Soldadora Industrial Miller en el taller">
+            </div>
 
-            <ul>
-                <li>
-                    <strong>2.2 Sierra Sensitiva de Corte Rápido (Tronzadora):</strong>
-                    Este equipo funciona mediante un motor eléctrico de alta potencia que hace girar a gran velocidad un disco de corte abrasivo (compuesto de resina y granos de óxido de aluminio o circonio). El operador sujeta firmemente el perfil metálico en la mordaza de la sierra y acciona el brazo móvil hacia abajo. El disco interactúa por fricción y alta velocidad contra el metal, desgastando y seccionando el material de manera limpia a lo largo de la línea de trazo deseada, permitiendo además realizar cortes precisos a diferentes ángulos (ingletes).
-                </li>
-            </ul>
-            <img src="imagenes/sierra.jpg" alt="Sierra sensitiva de corte rápido">
+            <div style="margin-top: 2.5rem;">
+                <h3>2.2 Sierra Sensitiva de Corte Rápido (Tronzadora)</h3>
+                <p>Este equipo funciona mediante un motor eléctrico de alta potencia que hace girar a gran velocidad un disco de corte abrasivo (compuesto de resina y granos de óxido de aluminio o circonio). El operador sujeta firmemente el perfil metálico en la mordaza de la sierra y acciona el brazo móvil hacia abajo. El disco interactúa por fricción y alta velocidad contra el metal, desgastando y seccionando el material de manera limpia a lo largo de la línea de trazo deseada, permitiendo además realizar cortes precisos a diferentes ángulos (ingletes).</p>
+                <img src="imagenes/sierra.jpg" alt="Sierra sensitiva de corte rápido">
+            </div>
 
-            <ul>
-                <li>
-                    <strong>2.3 Esmeril de Banco y Mesas de Trabajo:</strong>
-                    El esmeril de banco utiliza dos muelas abrasivas giratorias para desbastar rebabas, filos y preparar los bordes de las piezas soldadas. Por su parte, las mesas metálicas perforadas proveen una superficie firme y perfectamente nivelada con matrices de agujeros para fijar escuadras y alinear componentes con exactitud milimétrica.
-                </li>
-            </ul>
-            <img src="imagenes/esmeril_mesas.jpg" alt="Esmeril de banco y mesas de trabajo">
+            <div style="margin-top: 2.5rem;">
+                <h3>2.3 Esmeril de Banco y Mesas de Trabajo</h3>
+                <p>El esmeril de banco utiliza dos muelas abrasivas giratorias para desbastar rebabas, filos y preparar los bordes de las piezas soldadas. Por su parte, las mesas metálicas perforadas proveen una superficie firme y perfectamente nivelada con matrices de agujeros para fijar escuadras y alinear componentes con exactitud milimétrica.</p>
+                <img src="imagenes/esmeril_mesas.jpg" alt="Esmeril de banco y mesas de trabajo">
+            </div>
         </section>
 
         <!-- Sección de Seguridad y Equipo de Protección (Safety) -->
@@ -70,27 +284,16 @@
             <h2>3. Medidas de Seguridad y Equipo de Protección Personal (Safety)</h2>
             <p>El cumplimiento estricto de los protocolos de seguridad industrial es obligatorio en el taller para prevenir accidentes por quemaduras, radiación o proyección de partículas:</p>
             
-            <ul>
-                <li>
-                    <strong>3.1 Careta de Soldar:</strong>
-                    Protege los ojos y el rostro de la radiación ultravioleta (UV) e infrarroja (IR) emitida por el arco eléctrico, además de evitar lesiones por chispas o salpicaduras de metal fundido.
-                </li>
-                <li>
-                    <strong>3.2 Guantes de Carnaza:</strong>
-                    Fabricados con piel gruesa y resistente al calor extremo, protegen las manos de quemaduras al manipular piezas calientes, rebabas filosas o al operar los equipos de unión.
-                </li>
-                <li>
-                    <strong>3.3 Mandil de Protección y Ropa Adecuada:</strong>
-                    Evita que las chispas y el calor directo alcancen el cuerpo o la ropa de calle, reduciendo drásticamente el riesgo de quemaduras en el torso y extremidades.
-                </li>
-                <li>
-                    <strong>3.4 Gafas de Seguridad y Protección Ocular:</strong>
-                    Se utilizan de forma obligatoria durante las labores de corte con sierra sensitiva y esmerilado para evitar el ingreso de partículas o virutas metálicas a los ojos.
-                </li>
+            <ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.8;">
+                <li><strong>Careta de Soldar:</strong> Protege los ojos y el rostro de la radiación ultravioleta (UV) e infrarroja (IR) emitida por el arco eléctrico, además de evitar lesiones por chispas o salpicaduras de metal fundido.</li>
+                <li><strong>Guantes de Carnaza:</strong> Fabricados con piel gruesa y resistente al calor extremo, protegen las manos de quemaduras al manipular piezas calientes, rebabas filosas o al operar los equipos de unión.</li>
+                <li><strong>Mandil de Protección y Ropa Adecuada:</strong> Evita que las chispas y el calor directo alcancen el cuerpo o la ropa de calle, reduciendo drásticamente el riesgo de quemaduras en el torso y extremidades.</li>
+                <li><strong>Gafas de Seguridad y Protección Ocular:</strong> Se utilizan de forma obligatoria durante las labores de corte con sierra sensitiva y esmerilado para evitar el ingreso de partículas o virutas metálicas a los ojos.</li>
             </ul>
 
-            <div style="margin-top: 1.5rem;">
-                <p><strong>Evidencia del Equipo de Protección (Safety):</strong> Se muestra el equipo completo listo para su uso seguro antes de comenzar las prácticas en el taller.</p>
+            <div style="margin-top: 2rem;">
+                <h3>Evidencia del Equipo de Protección (Safety)</h3>
+                <p>Se muestra el equipo completo listo para su uso seguro antes de comenzar las prácticas en el taller.</p>
                 <img src="imagenes/safety.jpg" alt="Equipo de protección personal en el taller">
             </div>
         </section>
@@ -100,34 +303,30 @@
             <h2>4. Análisis de Piezas Cortadas y Soldadas</h2>
             <p>Como resultado físico del proceso de habilitado, trazo y unión en el taller, se obtuvieron las siguientes piezas:</p>
             
-            <ul>
-                <li>
-                    <strong>4.1 Perfil Metálico Cortado a Ángulo:</strong>
-                    Muestra un tramo de perfil tubular cortado con precisión utilizando la sierra sensitiva. Este tipo de corte permite realizar acoplamientos limpios y esquinas embonadas para estructuras mecánicas estables.
-                </li>
-            </ul>
-            <img src="imagenes/pieza_cortada.jpg" alt="Perfil metálico cortado">
+            <div style="margin-top: 2rem;">
+                <h3>4.1 Perfil Metálico Cortado a Ángulo</h3>
+                <p>Muestra un tramo de perfil tubular cortado con precisión utilizando la sierra sensitiva. Este tipo de corte permite realizar acoplamientos limpios y esquinas embonadas para estructuras mecánicas estables.</p>
+                <img src="imagenes/pieza_cortada.jpg" alt="Perfil metálico cortado">
+            </div>
 
-            <ul>
-                <li>
-                    <strong>4.2 Ensamblaje y Unión en Ángulo con Soldadura:</strong>
-                    Se observa el resultado de la unión de dos perfiles metálicos posicionados en escuadra mediante el proceso de soldadura MIG. El cordón depositado en la junta garantiza la rigidez estructural y la firmeza del ensamble final del proyecto.
-                </li>
-            </ul>
-            <img src="imagenes/pieza_soldada.jpg" alt="Pieza metálica unida mediante soldadura">
+            <div style="margin-top: 2.5rem;">
+                <h3>4.2 Ensamblaje y Unión en Ángulo con Soldadura</h3>
+                <p>Se observa el resultado de la unión de dos perfiles metálicos posicionados en escuadra mediante el proceso de soldadura MIG. El cordón depositado en la junta garantiza la rigidez estructural y la firmeza del ensamble final del proyecto.</p>
+                <img src="imagenes/pieza_soldada.jpg" alt="Pieza metálica unida mediante soldadura">
+            </div>
         </section>
 
         <!-- Sección de Conclusiones -->
         <section class="seccion">
-            <h2>5. Conclusiones de la Semana</h2>
+            <h2>5. Conclusiones</h2>
             <p>La práctica demuestra que la calidad de un ensamble mecatrónico no solo depende de un buen diseño virtual, sino también de comprender a fondo el comportamiento físico los materiales y el funcionamiento de la maquinaria de corte y soldadura. El respeto a las normas de seguridad asegura un flujo de trabajo eficiente y libre de riesgos en el entorno de manufactura.</p>
         </section>
 
         <!-- Sección de Fuentes y Referencias -->
         <section class="seccion">
-            <h2>6. Fuentes y Referencias Bibliográficas</h2>
+            <h2>6. Fuentes de Información</h2>
             <p>Los fundamentos sobre procesos de unión, soldadura, tecnología de materiales y seguridad industrial se respaldan en la siguiente literatura especializada:</p>
-            <ul>
+            <ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.6;">
                 <li><strong>Groover, M. P.</strong> (2010). <em>Fundamentals of Modern Manufacturing: Materials, Processes, and Systems</em>. Wiley.</li>
                 <li><strong>American Welding Society (AWS).</strong> (2020). <em>Welding Handbook: Welding Processes</em>. AWS.</li>
                 <li><strong>Kalpakjian, S., & Schmid, S. R.</strong> (2014). <em>Manufactura, ingeniería y tecnología</em>. Pearson Educación.</li>
