@@ -4,14 +4,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bitácora Mecatrónica</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* --- Estilo Gótico / Grimorio Oscuro --- */
+        body {
+            background-color: #0b080d; /* Fondo negro-violeta muy oscuro */
+            color: #d1c7d6; /* Tono pergamino envejecido claro */
+            font-family: "Georgia", "Times New Roman", serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            background-image: radial-gradient(circle at 50% 30%, #17101a 0%, #0b080d 80%);
+            background-attachment: fixed;
+        }
+
+        /* --- Menú de Navegación Estilo Pergamino / Lateral --- */
+        nav {
+            background-color: rgba(14, 10, 15, 0.95);
+            border-bottom: 2px solid #3b2738;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: #e6d7df;
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 1.5px;
+            font-family: "Times New Roman", serif;
+        }
+
+        .logo img {
+            height: 35px;
+            margin-right: 12px;
+            filter: drop-shadow(0 0 4px rgba(230, 215, 223, 0.3));
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: #b5a4b1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #f3e6ed;
+            text-shadow: 0 0 8px rgba(243, 230, 237, 0.6);
+        }
+
+        /* --- Cabecera Principal --- */
+        header {
+            background: linear-gradient(180deg, #16101a 0%, #0b080d 100%);
+            border-bottom: 2px solid #2d1d29;
+            text-align: center;
+            padding: 5rem 1rem 3rem 1rem;
+        }
+
+        header h1 {
+            font-size: 2.4rem;
+            color: #f0e6ec;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.9);
+        }
+
+        header p {
+            color: #9c8a98;
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        /* --- Contenedor Principal --- */
+        main {
+            max-width: 850px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* --- Secciones con Marcos Góticos Ornamentales --- */
+        .seccion, .intro {
+            background-color: rgba(20, 14, 22, 0.85);
+            border: 2px solid #3b2636;
+            border-radius: 4px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.7), 0 8px 25px rgba(0, 0, 0, 0.9);
+            position: relative;
+        }
+
+        /* Esquinas ornamentales sutiles simulando marcos antiguos */
+        .seccion::before, .intro::before {
+            content: "✦ ✧ ✦";
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #5c3f56;
+            font-size: 0.7rem;
+            letter-spacing: 8px;
+        }
+
+        h2 {
+            color: #e6d7df;
+            border-bottom: 1px solid #3b2636;
+            padding-bottom: 0.6rem;
+            margin-top: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: normal;
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            color: #c9bcc5;
+        }
+
+        strong {
+            color: #f2e6ee;
+        }
+
+        /* --- Pie de Página --- */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            background-color: #060407;
+            border-top: 1px solid #231621;
+            color: #7d6e79;
+            font-size: 0.85rem;
+        }
+    </style>
 </head>
 <body>
-<!-- Menú de navegación principal -->
+    <!-- Menú de navegación principal -->
     <nav>
-        <!-- Logo y título -->
-        <div class="logo" style="display: flex; align-items: center;">
-            <img src="imagenes/Logopuebla.png" alt="Logo Puebla" style="height: 40px; margin-right: 15px;">
+        <div class="logo">
+            <img src="imagenes/Logopuebla.png" alt="Logo Puebla">
             Proyecto de ingeniería
         </div>
         <ul class="nav-links">
@@ -22,10 +165,12 @@
         </ul>
     </nav>
 
- <header style="background-color: #0d1117; border-bottom: 1px solid #30363d; color: #c9d1d9; text-align: center; padding: 7rem 1rem 3rem 1rem;">
-        <h1>Bitácora Mecatrónica: Diario de Aprendizaje</h1>
-        <p>Repositorio semanal de prácticas y proyectos de la materia</p>
+    <!-- Cabecera principal -->
+    <header>
+        <h1>Bitácora Mecatrónica</h1>
+        <p>Repositorio semanal...</p>
     </header>
+
     <main>
         <!-- Sobre el proyecto -->
         <section class="seccion intro">
@@ -36,7 +181,7 @@
         <!-- Sobre mí -->
         <section class="seccion">
             <h2>Sobre mí</h2>
-            <p>Soy Emmanuel Justo Flores, estudiante de Ingeniería Mecatrónica. Me apasiona la mecánica, la electrónica y la programación para crear soluciones. Creé este repositorio como un espacio para documentar mi progreso en la materia, registrar mis prácticas de laboratorio y tener un portafolio tangible de mi evolución como futuro ingeniero.</p>
+            <p>Soy Emmanuel Justo Flores, estudiante de Ingeniería Mecatrónica. Me apasiona la mecánica, la electrónica y la programación para crear soluciones. Creé este repositorio como un espacio para documentar mi progreso en la materia, registrar prácticas de laboratorio y tener un portafolio tangible de mi evolución como futuro ingeniero.</p>
         </section>
     </main>
 
