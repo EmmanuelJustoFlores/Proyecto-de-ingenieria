@@ -17,18 +17,19 @@
             background-attachment: fixed;
         }
 
-        /* --- Menú de Navegación Estilo Pergamino / Lateral --- */
+        /* --- Menú de Navegación con Menú Desplegable a la Izquierda --- */
         nav {
             background-color: rgba(14, 10, 15, 0.95);
             border-bottom: 2px solid #3b2738;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
             padding: 1rem 2rem;
             position: sticky;
             top: 0;
             z-index: 1000;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+            gap: 2rem;
         }
 
         .logo {
@@ -47,25 +48,70 @@
             filter: drop-shadow(0 0 4px rgba(230, 215, 223, 0.3));
         }
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-            margin: 0;
-            padding: 0;
+        /* --- Estilo del Menú Desplegable (Dropdown) a la Izquierda --- */
+        .dropdown {
+            position: relative;
+            display: inline-block;
         }
 
-        .nav-links a {
-            color: #b5a4b1;
-            text-decoration: none;
+        .dropbtn {
+            background-color: #1a1018;
+            color: #e6d7df;
+            padding: 0.6rem 1.2rem;
             font-size: 0.95rem;
+            font-family: "Georgia", "Times New Roman", serif;
+            border: 1px solid #4a2f43;
+            border-radius: 4px;
+            cursor: pointer;
             letter-spacing: 0.5px;
             transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
         }
 
-        .nav-links a:hover {
+        .dropbtn:hover {
+            background-color: #2a1826;
             color: #f3e6ed;
-            text-shadow: 0 0 8px rgba(243, 230, 237, 0.6);
+            border-color: #6b4461;
+            box-shadow: 0 0 8px rgba(107, 68, 97, 0.6);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: #140e16;
+            min-width: 160px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
+            border: 1px solid #3b2636;
+            border-radius: 4px;
+            z-index: 1;
+            margin-top: 5px;
+        }
+
+        .dropdown-content a {
+            color: #b5a4b1;
+            padding: 10px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            border-bottom: 1px dashed #221420;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #241421;
+            color: #f3e6ed;
+            padding-left: 20px; /* Pequeño efecto visual al pasar el cursor */
+        }
+
+        /* Mostrar el menú desplegable al pasar el cursor (o se puede interactuar) */
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
 
         /* --- Cabecera Principal --- */
@@ -109,7 +155,6 @@
             position: relative;
         }
 
-        /* Esquinas ornamentales sutiles simulando marcos antiguos */
         .seccion::before, .intro::before {
             content: "✦ ✧ ✦";
             position: absolute;
@@ -151,18 +196,23 @@
     </style>
 </head>
 <body>
-    <!-- Menú de navegación principal -->
+    <!-- Menú de navegación con el desplegable a la izquierda -->
     <nav>
         <div class="logo">
             <img src="imagenes/Logopuebla.png" alt="Logo Puebla">
             Proyecto de ingeniería
         </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="semana1.html">Semana 1</a></li>
-            <li><a href="semana2.html">Semana 2</a></li>
-            <li><a href="semana3.html">Semana 3</a></li>
-        </ul>
+
+        <!-- Menú Desplegable ubicado del lado izquierdo -->
+        <div class="dropdown">
+            <button class="dropbtn">Navegación ▾</button>
+            <div class="dropdown-content">
+                <a href="index.html">Inicio</a>
+                <a href="semana1.html">Semana 1</a>
+                <a href="semana2.html">Semana 2</a>
+                <a href="semana3.html">Semana 3</a>
+            </div>
+        </div>
     </nav>
 
     <!-- Cabecera principal -->
