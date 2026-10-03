@@ -200,7 +200,7 @@
             color: #f3e6ed;
         }
 
-        /* --- Imágenes --- */
+        /* --- Imágenes y leyendas --- */
         img {
             max-width: 100%;
             border-radius: 4px;
@@ -208,6 +208,16 @@
             border: 1px solid #3b2636;
             box-shadow: 0 4px 15px rgba(0,0,0,0.8);
             display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .img-caption {
+            font-size: 0.85rem;
+            color: #9c8a98;
+            text-align: center;
+            margin-top: 0.5rem;
+            font-style: italic;
         }
 
         /* --- Pie de Página --- */
@@ -263,7 +273,8 @@
             <div style="margin-top: 2rem;">
                 <h3>2.1 Modelado Paramétrico y Exportación DXF</h3>
                 <p><strong>¿Cómo funciona?</strong> Partiendo de un modelo sólido (*CAD part*) previamente estructurado en SolidWorks, se diseñaron las piezas considerando los grosores específicos del sustrato. Posteriormente, se genera un plano de dibujo (*CAD drawing*) enfocado en las caras de corte, eliminando elementos de cota innecesarios y guardando el documento directamente en formato <code>.dxf</code> para asegurar la total compatibilidad con el sistema de control numérico[cite: 10].</p>
-                <img src="imagenes/solidworks_dxf.png" alt="Generación de archivo DXF desde SolidWorks">
+                <img src="imagenes/diseno_Cad_2.jpg" alt="Pequeño diseño sobre cómo se hace en CAD">
+                <div class="img-caption">Figura 1: Pequeño diseño sobre cómo se hace en CAD.</div>
             </div>
 
             <div style="margin-top: 2.5rem;">
@@ -275,7 +286,7 @@
         <!-- Sección de Operación de la Cortadora Láser -->
         <section class="seccion">
             <h2>3. Operación de la Cortadora Láser CNC y Seguridad</h2>
-            <p>La manufactura física de los elementos se ejecutó utilizando una cortadora láser industrial tipo CO2, siguiendo estrictos protocolos operativos y de seguridad industrial[cite: 2, 22]:</p>
+            <p>La manufactura física de los elementos se ejecutó utilizando la cortadora láser industrial (referenciada en el sistema como <code>impresora3d.jpg</code>), siguiendo estrictos protocolos operativos y de seguridad industrial[cite: 2, 22]:</p>
             
             <div style="margin-top: 2rem;">
                 <h3>3.1 Principio de Funcionamiento y Protocolo de Seguridad (*Safety*)</h3>
@@ -285,19 +296,38 @@
             <div style="margin-top: 2.5rem;">
                 <h3>3.2 Configuración en el Software de Control y Ejecución</h3>
                 <p><strong>¿Cómo funciona?</strong> En el software de control (<em>SmartCarve</em>) se importa el archivo <code>.dxf</code>, se configuran velocidad y potencia según la tabla de materiales permitidos (evitando plásticos con cloro o superficies altamente reflectantes), y se verifica el área mediante la función <em>"Go scale"</em>[cite: 17, 24, 26]. Luego se alinea el cabezal en los ejes $X$ e $Y$ y se ajusta el eje $Z$ a una distancia aproximada de 5 mm antes de iniciar el corte[cite: 25, 26].</p>
-                <img src="imagenes/cortadora_laser.png" alt="Operación de la Cortadora Láser CNC en el taller">
+                <img src="imagenes/Corte_laser_2.jpg" alt="Proceso de corte en MDF de 2.65mm">
+                <div class="img-caption">Figura 2: Proceso de cómo se cortaba en MDF de 2.65mm.</div>
+            </div>
+        </section>
+
+        <!-- Sección de Resultados y Ensamble -->
+        <section class="seccion">
+            <h2>4. Resultados y Ensamble</h2>
+            <p>Tras finalizar el proceso de corte sustractivo, se procedió al post-procesamiento y armado de los componentes fabricados:</p>
+
+            <div style="margin-top: 1.5rem;">
+                <h3>4.1 Armado del Tablero</h3>
+                <img src="imagenes/Tablero_Ajedrez_2.jpg" alt="Armado del tablero de ajedrez">
+                <div class="img-caption">Figura 3: Armado del tablero.</div>
+            </div>
+
+            <div style="margin-top: 2.5rem;">
+                <h3>4.2 Ensamblaje de Piezas</h3>
+                <img src="imagenes/Piezas_Ajedrez_2.jpg" alt="Piezas de ajedrez ensambladas">
+                <div class="img-caption">Figura 4: Las piezas de ajedrez terminadas y listas sobre el tablero.</div>
             </div>
         </section>
 
         <!-- Sección de Conclusiones -->
         <section class="seccion">
-            <h2>4. Conclusiones</h2>
+            <h2>5. Conclusiones</h2>
             <p>La práctica demuestra que la correcta preparación de archivos vectoriales en SolidWorks y la comprensión detallada del ancho de corte (*kerf*) son factores determinantes para el éxito en la fabricación digital con láser[cite: 10, 30]. Asimismo, seguir rigurosamente los protocolos de seguridad y calibración asegura un flujo de trabajo eficiente, limpio y libre de riesgos en el taller[cite: 22, 26].</p>
         </section>
 
         <!-- Sección de Fuentes y Referencias -->
         <section class="seccion">
-            <h2>5. Fuentes de Información</h2>
+            <h2>6. Fuentes de Información</h2>
             <p>Los parámetros de fabricación y normas operativas se basan en la documentación técnica del laboratorio y la literatura especializada[cite: 10, 17, 22, 30]:</p>
             <ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.6;">
                 <li><strong>Manual de Operación IDIT.</strong> (2026). <em>Guía de uso para Cortadora Láser CNC, parámetros de potencia y normativas de seguridad</em>[cite: 17, 22].</li>
