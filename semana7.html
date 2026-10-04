@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semana 7 - Bitácora Mecatrónica</title>
+    <style>
+        /* --- Estilo Gótico / Grimorio Oscuro --- */
+        body {
+            background-color: #0b080d;
+            color: #d1c7d6;
+            font-family: "Georgia", "Times New Roman", serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            background-image: radial-gradient(circle at 50% 30%, #17101a 0%, #0b080d 80%);
+            background-attachment: fixed;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Menú de Navegación con Menús Desplegables --- */
+        nav {
+            background-color: rgba(14, 10, 15, 0.95);
+            border-bottom: 2px solid #3b2738;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: #e6d7df;
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 1.5px;
+            font-family: "Times New Roman", serif;
+        }
+
+        .logo img {
+            height: 35px;
+            margin-right: 12px;
+            filter: drop-shadow(0 0 4px rgba(230, 215, 223, 0.3));
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: #1a1018;
+            color: #e6d7df;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.95rem;
+            font-family: "Georgia", "Times New Roman", serif;
+            border: 1px solid #4a2f43;
+            border-radius: 4px;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .dropbtn:hover {
+            background-color: #2a1826;
+            color: #f3e6ed;
+            border-color: #6b4461;
+            box-shadow: 0 0 8px rgba(107, 68, 97, 0.6);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: #140e16;
+            min-width: 210px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
+            border: 1px solid #3b2636;
+            border-radius: 4px;
+            z-index: 1;
+            margin-top: 5px;
+        }
+
+        .dropdown-content a {
+            color: #b5a4b1;
+            padding: 10px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            border-bottom: 1px dashed #221420;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #241421;
+            color: #f3e6ed;
+            padding-left: 20px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* --- Cabecera Principal --- */
+        header {
+            background: linear-gradient(180deg, #16101a 0%, #0b080d 100%);
+            border-bottom: 2px solid #2d1d29;
+            text-align: center;
+            padding: 5rem 1rem 3rem 1rem;
+        }
+
+        header h1 {
+            font-size: 2.4rem;
+            color: #f0e6ec;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.9);
+        }
+
+        header p {
+            color: #9c8a98;
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        /* --- Contenedor Principal --- */
+        main {
+            max-width: 850px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* --- Secciones con Marcos Góticos Ornamentales --- */
+        .seccion {
+            background-color: rgba(20, 14, 22, 0.85);
+            border: 2px solid #3b2636;
+            border-radius: 4px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.7), 0 8px 25px rgba(0, 0, 0, 0.9);
+            position: relative;
+        }
+
+        .seccion::before {
+            content: "✦ ✧ ✦";
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #5c3f56;
+            font-size: 0.7rem;
+            letter-spacing: 8px;
+        }
+
+        h2 {
+            color: #e6d7df;
+            border-bottom: 1px solid #3b2636;
+            padding-bottom: 0.6rem;
+            margin-top: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: normal;
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            color: #c9bcc5;
+        }
+
+        strong {
+            color: #f2e6ee;
+        }
+
+        a {
+            color: #d1a3c1;
+        }
+
+        a:hover {
+            color: #f3e6ed;
+        }
+
+        /* --- Estilos para Imágenes --- */
+        .imagen-container {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        .imagen-container img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #3b2636;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+        }
+
+        .imagen-caption {
+            font-size: 0.85rem;
+            color: #9c8a98;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        /* --- Bloque de Código G --- */
+        pre {
+            background-color: #0b080d;
+            border: 1px solid #3b2636;
+            border-radius: 4px;
+            padding: 1rem;
+            overflow-x: auto;
+            color: #d1c7d6;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.85rem;
+        }
+
+        /* --- Estilo para la lista de fuentes --- */
+        .fuentes-lista {
+            font-size: 0.9rem;
+            padding-left: 1.5rem;
+        }
+
+        .fuentes-lista li {
+            margin-bottom: 0.8rem;
+            color: #b5a4b1;
+        }
+
+        /* --- Pie de Página --- */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            background-color: #060407;
+            border-top: 1px solid #231621;
+            color: #7d6e79;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Menú de navegación principal -->
+    <nav>
+        <div class="nav-left">
+            <div class="logo">
+                <img src="Logopuebla.png" alt="Logo Puebla" onerror="this.onerror=null; this.src='imagenes/Logopuebla.png';">
+                Proyecto de ingeniería
+            </div>
+            <!-- Menú desplegable con las semanas -->
+            <div class="dropdown">
+                <button class="dropbtn">Navegación ▾</button>
+                <div class="dropdown-content">
+                    <a href="index.html">Inicio</a>
+                    <a href="semana1.html">Semana 1</a>
+                    <a href="semana2.html">Semana 2</a>
+                    <a href="semana3.html">Semana 3</a>
+                    <a href="semana4.html">Semana 4</a>
+                    <a href="semana5.html">Semana 5</a>
+                    <a href="semana6.html">Semana 6</a>
+                    <a href="semana7.html">Semana 7</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <!-- Menú desplegable con tus archivos reales -->
+            <div class="dropdown">
+                <button class="dropbtn">Descargas / Archivos ▾</button>
+                <div class="dropdown-content">
+                    <a href="Archivos/Hongo.nc" download>Código G Hongo (.nc)</a>
+                    <a href="Archivos/Kunai.STL" download>Kunai (.stl)</a>
+                    <a href="Archivos/Kunai.SLDPRT" download>Kunai (.sldprt)</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cabecera principal -->
+    <header>
+        <h1>Semana 7: Introducción al Control Numérico Computarizado (CNC)</h1>
+        <p>Fundamentos de programación G-Code, simulación de trayectorias y operación de máquinas de control automatizado</p>
+    </header>
+
+    <main>
+        <!-- Sección Introducción -->
+        <section class="seccion">
+            <h2>¿Qué es el CNC y cómo funciona?</h2>
+            <p>El <strong>Control Numérico Computarizado (CNC)</strong> es un sistema de automatización donde las máquinas herramienta (como fresadoras, tornos o cortadoras) son controladas mediante comandos programados en una computadora, en lugar de ser operadas de forma completamente manual[cite: 41].</p>
+            <p><strong>Funcionamiento paso a paso:</strong></p>
+            <ul>
+                <li><strong>Diseño y Conversión:</strong> Se concibe la pieza de forma digital o mediante planos de coordenadas cartesianas.</li>
+                <li><strong>Programación:</strong> Se redactan las instrucciones numéricas que indican las rutas, profundidades y velocidades.</li>
+                <li><strong>Simulación:</strong> Se verifica el código en software especializado para prevenir errores o daños en la herramienta.</li>
+                <li><strong>Ejecución:</strong> La máquina interpreta los códigos para mover sus ejes (X, Y, Z) con absoluta precisión sobre el material[cite: 41].</li>
+            </ul>
+            <div class="imagen-container">
+                <img src="CNC.jpg" alt="Operación de máquina CNC en el laboratorio" onerror="this.onerror=null; this.src='imagenes/CNC.jpg';">
+                <div class="imagen-caption">Sesión práctica de configuración y supervisión de maquinado CNC en el laboratorio de ingeniería[cite: 41].</div>
+            </div>
+        </section>
+
+        <!-- Sección Simulación y Códigos G -->
+        <section class="seccion">
+            <h2>Simulación en Línea y Códigos G</h2>
+            <p>Para esta práctica utilizamos la plataforma de simulación en línea <a href="https://ncviewer.com" target="_blank">NC Viewer</a>, la cual permite visualizar de forma gráfica la trayectoria que seguirá la herramienta antes de enviarla a la máquina física[cite: 42].</p>
+            <p><strong>¿Cómo funcionan los Códigos G?</strong> Son instrucciones estandarizadas que dictan los movimientos de la máquina:</p>
+            <ul>
+                <li><strong>G21 / G90:</strong> Configuran el sistema en milímetros y establecen coordenadas absolutas.</li>
+                <li><strong>G0:</strong> Posicionamiento rápido sin contacto de corte (herramienta elevada).</li>
+                <li><strong>G1:</strong> Movimiento de corte lineal controlado a una velocidad específica (F).</li>
+                <li><strong>G3:</strong> Interpolación circular en sentido antihorario, utilizando centros relativos (I, J).</li>
+            </ul>
+        </section>
+
+        <!-- Sección del Diseño del Hongo -->
+        <section class="seccion">
+            <h2>Práctica de Dibujo: Diseño de Hongo en Código G</h2>
+            <p>Como asignación de la semana, se programó un diseño con forma de hongo incorporando tallo, sombrero, ojos y manchas circulares. A continuación se muestra la simulación obtenida y el código implementado:</p>
+            
+            <div class="imagen-container">
+                <img src="Hongo.jpg" alt="Simulación del diseño de hongo en NC Viewer" onerror="this.onerror=null; this.src='imagenes/Hongo.jpg';">
+                <div class="imagen-caption">Resultado visual del diseño simulado en <a href="https://ncviewer.com" target="_blank">NC Viewer</a>[cite: 42].</div>
+            </div>
+
+            <p><strong>Código G utilizado para la pieza:</strong></p>
+            <pre><code>G21 ; Unidades en milímetros
+G90 ; Coordenadas absolutas
+G0 Z5.0 ; Elevar herramienta de seguridad
+
+; --- Tallo ---
+G0 X-14 Y-5
+G1 Z-1 F200
+G1 X-14 Y-15
+G3 X14 Y-15 I14 J0  ; Curva inferior del tallo
+G1 X14 Y-5
+G1 X-14 Y-5         ; Cierra la base del sombrero
+G0 Z5
+
+; --- Ojo Izquierdo ---
+G0 X-7 Y-10
+G1 Z-1 F200
+G1 X-7 Y-14
+G3 X-3 Y-14 I2 J0   ; Curva inferior del ojo
+G1 X-3 Y-10
+G3 X-7 Y-10 I-2 J0  ; Curva superior del ojo
+G0 Z5
+
+; --- Ojo Derecho ---
+G0 X3 Y-10
+G1 Z-1 F200
+G1 X3 Y-14
+G3 X7 Y-14 I2 J0    ; Curva inferior del ojo
+G1 X7 Y-10
+G3 X3 Y-10 I-2 J0   ; Curva superior del ojo
+G0 Z5
+
+; --- Sombrero ---
+G0 X-35 Y-5
+G1 Z-1 F200
+G1 X35 Y-5          ; Línea recta para la base del sombrero
+G3 X-35 Y-5 I-35 J0 ; Cúpula del sombrero (Semicírculo perfecto radio 35)
+G0 Z5
+
+; --- Mancha Central ---
+G0 X0 Y22
+G1 Z-1 F200
+G3 X0 Y22 I0 J-8    ; Círculo completo de radio 8
+G0 Z5
+
+; --- Mancha Izquierda ---
+G0 X-18 Y14
+G1 Z-1 F200
+G3 X-18 Y14 I0 J-6  ; Círculo completo de radio 6
+G0 Z5
+
+; --- Mancha Derecha ---
+G0 X18 Y14
+G1 Z-1 F200
+G3 X18 Y14 I0 J-6   ; Círculo completo de radio 6
+G0 Z5
+
+; --- Fin del programa ---
+G0 Z10
+G0 X0 Y0
+M30</code></pre>
+        </section>
+
+        <!-- Sección Fuentes de Información -->
+        <section class="seccion">
+            <h2>Fuentes de Información y Referencias CNC</h2>
+            <p>Los fundamentos teóricos y la estructura de programación en control numérico provienen de la siguiente bibliografía especializada:</p>
+            <ul class="fuentes-lista">
+                <li><strong>Programación CNC y Códigos G:</strong> Smid, P. (2008). <em>CNC Programming Handbook</em>. Industrial Press. (Sintaxis de comandos G y M, interpolación lineal y circular, y planeación de trayectorias).</li>
+                <li><strong>Automatización y Manufactura Computarizada:</strong> Groover, M. P. (2020). <em>Fundamentos de manufactura moderna: materiales, procesos y sistemas</em>. Wiley / Cengage Learning. (Principios de control numérico, ejes coordenados y sistemas de posicionamiento).</li>
+                <li><strong>Simulación de Trayectorias:</strong> NC Viewer Software Documentation. Disponible en: <a href="https://ncviewer.com" target="_blank">https://ncviewer.com</a>[cite: 42].</li>
+            </ul>
+        </section>
+
+        <!-- Sección Conclusión -->
+        <section class="seccion">
+            <h2>Conclusión de la Sesión</h2>
+            <p>Comprender la lógica detrás del código G y el funcionamiento del entorno CNC permite traducir ideas geométricas abstractas en trayectorias de maquinado reales y seguras, cerrando la brecha entre el diseño asistido por computadora y la manufactura avanzada.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Bitácora de Ingeniería Mecatrónica | Proyecto Académico IBERO Puebla</p>
+    </footer>
+</body>
+</html>
